@@ -2,10 +2,10 @@
   "name": "Planuf Productions",
   "short_name": "Planuf",
   "description": "Internal production planning app for Planuf Productions.",
-  "start_url": "/BibleApp/",
+  "start_url": "/Planuf-Staging/",
   "display": "standalone",
   "background_color": "#9381FF",
   "theme_color": "#9381FF",
   "orientation": "portrait",
-  "scope": "/BibleApp/"
+  "scope": "/Planuf-Staging/"
 }
