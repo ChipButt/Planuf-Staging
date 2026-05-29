@@ -33,12 +33,23 @@
       if(detail){ detail.style.setProperty('display','none','important'); }
       if(sidebar){ sidebar.style.setProperty('display','flex','important'); }
     });
-    document.body.classList.add('planuf-messages-route');
+    document.body.classList.add('planuf-messages-route','planuf-force-chat-list');
+  }
+
+  function releaseForcedList(){
+    document.body.classList.remove('planuf-force-chat-list');
+    Array.from(document.querySelectorAll('.messages-layout')).forEach(function(layout){
+      delete layout.dataset.planufForceList;
+      var detail=layout.querySelector('.chat-detail,.chatView,[data-chat-detail]');
+      var sidebar=layout.querySelector('.chat-sidebar,.feed,[data-chat-list]');
+      if(detail){ detail.style.removeProperty('display'); }
+      if(sidebar){ sidebar.style.removeProperty('display'); }
+    });
   }
 
   function goBackToChatList(event){
     if(event){ event.preventDefault(); event.stopPropagation(); }
-    suppressChatOpenUntil=Date.now()+1500;
+    suppressChatOpenUntil=Date.now()+2000;
     try{ sessionStorage.removeItem('planuf_active_thread_id'); }catch(e){}
     try{ sessionStorage.removeItem('planuf_selected_thread_id'); }catch(e){}
     try{ localStorage.removeItem('planuf_active_thread_id'); }catch(e){}
@@ -57,6 +68,7 @@
     setTimeout(forceChatList,150);
     setTimeout(forceChatList,350);
     setTimeout(forceChatList,750);
+    setTimeout(forceChatList,1250);
   }
 
   function bindBackButtons(){
@@ -79,9 +91,20 @@
     });
   }
 
+  function bindChatRows(){
+    var selectors='.messages-layout .chat-row,.messages-layout .record-row,.messages-layout .item-list button';
+    Array.from(document.querySelectorAll(selectors)).forEach(function(row){
+      if(row.dataset.planufOpenBound==='1') return;
+      row.dataset.planufOpenBound='1';
+      row.addEventListener('click',function(){ suppressChatOpenUntil=0; releaseForcedList(); },true);
+      row.addEventListener('touchend',function(){ suppressChatOpenUntil=0; releaseForcedList(); },true);
+    });
+  }
+
   function apply(){
     document.body.classList.toggle('planuf-messages-route', isMessagesActive());
     bindBackButtons();
+    bindChatRows();
     if(Date.now()<suppressChatOpenUntil){ forceChatList(); }
   }
 
