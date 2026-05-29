@@ -1,0 +1,14 @@
+/* Planuf v66: replace padding-offset layout with a real fixed content viewport below the banner */
+:root{--planuf-fixed-topbar:92px!important;}
+html,body,#root{width:100%!important;max-width:430px!important;min-width:320px!important;height:100dvh!important;max-height:100dvh!important;margin:0 auto!important;overflow:hidden!important;background:#9381FF!important;}
+.app-shell{display:block!important;width:100%!important;max-width:430px!important;height:100dvh!important;max-height:100dvh!important;margin:0 auto!important;overflow:hidden!important;background:#9381FF!important;}
+.sidebar{position:fixed!important;top:0!important;left:50%!important;transform:translateX(-50%)!important;width:100%!important;max-width:430px!important;height:var(--planuf-fixed-topbar)!important;max-height:var(--planuf-fixed-topbar)!important;margin:0!important;padding:7px 8px 6px!important;z-index:5000!important;overflow:visible!important;background:#9381FF!important;border-right:0!important;border-bottom:3px solid #000!important;}
+.main-panel{position:fixed!important;top:var(--planuf-fixed-topbar)!important;left:50%!important;bottom:0!important;transform:translateX(-50%)!important;width:100%!important;max-width:430px!important;height:calc(100dvh - var(--planuf-fixed-topbar))!important;max-height:calc(100dvh - var(--planuf-fixed-topbar))!important;margin:0!important;padding:8px!important;overflow-y:auto!important;overflow-x:hidden!important;background:#9381FF!important;}
+.main-panel > .topbar,.main-panel > header.topbar,.app-shell > .topbar{display:none!important;height:0!important;min-height:0!important;max-height:0!important;margin:0!important;padding:0!important;border:0!important;overflow:hidden!important;}
+.main-panel > *:first-child{margin-top:0!important;padding-top:0!important;}
+.page-stack,.dashboard-grid,.two-column,.adaptive-layout,.messages-layout{margin-top:0!important;padding-top:0!important;}
+.page-stack{gap:12px!important;}
+.messages-layout{height:calc(100dvh - var(--planuf-fixed-topbar) - 16px)!important;max-height:calc(100dvh - var(--planuf-fixed-topbar) - 16px)!important;margin:0!important;transform:none!important;}
+.nav-list{height:40px!important;min-height:40px!important;max-height:40px!important;overflow:visible!important;}
+.nav-item,.nav-list button,.sidebar button.nav-item{height:40px!important;min-height:40px!important;max-height:40px!important;padding:4px 1px 7px!important;line-height:1.25!important;overflow:visible!important;align-items:center!important;justify-content:center!important;}
+.nav-item span,.nav-item strong,.nav-list button span,.sidebar button.nav-item span{line-height:1.25!important;overflow:visible!important;padding-bottom:3px!important;display:inline-block!important;}
