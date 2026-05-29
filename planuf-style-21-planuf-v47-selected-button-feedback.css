@@ -1,0 +1,55 @@
+
+button,
+.nav-tab,
+.segmented button,
+.button-strip button,
+.chat-row,
+.module-card,
+.record-row,
+.primary,
+.secondary,
+.ghost {
+  transition: background-color .14s ease, border-color .14s ease, box-shadow .14s ease, transform .08s ease, filter .14s ease !important;
+}
+button:active,
+.nav-tab:active,
+.segmented button:active,
+.button-strip button:active,
+.chat-row:active,
+.module-card:active,
+.record-row:active,
+.primary:active,
+.secondary:active,
+.ghost:active {
+  transform: translateY(1px) scale(.985) !important;
+  filter: brightness(.93) saturate(1.08) !important;
+  box-shadow: inset 0 0 0 3px rgba(0,0,0,.28) !important;
+}
+.segmented button.selected,
+.segmented button[aria-pressed="true"],
+.button-strip button.selected,
+.button-strip button[aria-pressed="true"],
+.nav-tab.active,
+.chat-row.active,
+.record-row.selected,
+.module-card.active,
+button.selected,
+button.active,
+.choice-card.selected,
+.choice-card.active,
+.yes-no button.selected,
+.yes-no button[aria-pressed="true"] {
+  background:#FAC05E !important;
+  border-color:#000000 !important;
+  color:#000000 !important;
+  box-shadow: inset 0 0 0 3px rgba(0,0,0,.26), 0 4px 0 rgba(0,0,0,.18) !important;
+}
+.chat-check-row input:checked + span,
+.check-row input:checked + span,
+.checkbox-row input:checked + span {
+  background:#FAC05E !important;
+  color:#000000 !important;
+  border-radius:999px !important;
+  padding:3px 8px !important;
+  box-shadow: inset 0 0 0 2px rgba(0,0,0,.22) !important;
+}

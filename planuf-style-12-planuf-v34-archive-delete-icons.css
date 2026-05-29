@@ -1,0 +1,75 @@
+
+.profile-actions button.icon-button.asset-action-button,
+.profile-actions button.icon-button.asset-action-button:hover,
+.profile-actions button.icon-button.asset-action-button:focus-visible,
+.profile-actions button.icon-button.asset-action-button.active {
+  width:34px!important;
+  height:34px!important;
+  min-width:34px!important;
+  min-height:34px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  color:transparent!important;
+  transform:none!important;
+  display:grid!important;
+  place-items:center!important;
+  overflow:visible!important;
+}
+.profile-actions button.icon-button.asset-action-button:focus-visible {
+  outline:2px solid #000000!important;
+  outline-offset:3px!important;
+}
+.profile-actions .asset-action-icon {
+  width:32px!important;
+  height:32px!important;
+  display:block!important;
+  background-size:contain!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  background-color:transparent!important;
+  pointer-events:none!important;
+}
+.profile-actions .archive-action-icon {
+  background-image:url("assets/embedded/planuf-style-12-planuf-v34-archive-delete-icons-embedded-208fc8bde96e.png")!important;
+}
+.profile-actions .delete-action-icon {
+  background-image:url("assets/embedded/planuf-style-12-planuf-v34-archive-delete-icons-embedded-cdc840cc45f4.png")!important;
+}
+.archived-profile-record {
+  display:grid!important;
+  grid-template-columns:auto minmax(0,1fr) auto!important;
+  align-items:center!important;
+  gap:12px!important;
+}
+.archived-profile-actions {
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  gap:8px!important;
+  flex-wrap:wrap!important;
+}
+.archived-profile-actions button {
+  min-height:34px!important;
+  padding:0 12px!important;
+}
+.empty-state {
+  margin:0!important;
+  padding:14px!important;
+  color:var(--planuf-muted)!important;
+  border:1px solid #FFFFFF!important;
+  border-radius:8px!important;
+  background:#9381ff!important;
+}
+@media (max-width: 720px) {
+  .archived-profile-record {
+    grid-template-columns:auto minmax(0,1fr)!important;
+  }
+  .archived-profile-actions {
+    grid-column:1 / -1!important;
+    justify-content:flex-start!important;
+  }
+}

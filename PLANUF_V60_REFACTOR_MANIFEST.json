@@ -1,0 +1,311 @@
+[
+  {
+    "type": "style",
+    "order": 0,
+    "source_id": null,
+    "file": "planuf-style-00-inline.css",
+    "bytes": 5634342
+  },
+  {
+    "type": "style",
+    "order": 1,
+    "source_id": "planuf-v12-mobile-profile-fixes",
+    "file": "planuf-style-01-planuf-v12-mobile-profile-fixes.css",
+    "bytes": 1484172
+  },
+  {
+    "type": "style",
+    "order": 2,
+    "source_id": "planuf-v18-final-profile-badge-cog-fix",
+    "file": "planuf-style-02-planuf-v18-final-profile-badge-cog-fix.css",
+    "bytes": 2961212
+  },
+  {
+    "type": "style",
+    "order": 3,
+    "source_id": "planuf-v19-high-specificity-cog-badge-fix",
+    "file": "planuf-style-03-planuf-v19-high-specificity-cog-badge-fix.css",
+    "bytes": 1440160
+  },
+  {
+    "type": "style",
+    "order": 4,
+    "source_id": "planuf-v20-profile-mic-final-fix",
+    "file": "planuf-style-04-planuf-v20-profile-mic-final-fix.css",
+    "bytes": 2526
+  },
+  {
+    "type": "style",
+    "order": 5,
+    "source_id": "planuf-v21-final-single-line-mic-centre",
+    "file": "planuf-style-05-planuf-v21-final-single-line-mic-centre.css",
+    "bytes": 1255
+  },
+  {
+    "type": "style",
+    "order": 6,
+    "source_id": "planuf-v22-profile-circle-purple-fill",
+    "file": "planuf-style-06-planuf-v22-profile-circle-purple-fill.css",
+    "bytes": 990
+  },
+  {
+    "type": "style",
+    "order": 7,
+    "source_id": "planuf-v25-mobile-tabs-scheduler-grid-fix",
+    "file": "planuf-style-07-planuf-v25-mobile-tabs-scheduler-grid-fix.css",
+    "bytes": 6005
+  },
+  {
+    "type": "style",
+    "order": 8,
+    "source_id": "planuf-v27-mobile-schedule-popover-grid-fix",
+    "file": "planuf-style-08-planuf-v27-mobile-schedule-popover-grid-fix.css",
+    "bytes": 4238
+  },
+  {
+    "type": "style",
+    "order": 9,
+    "source_id": "planuf-v28-popover-front-and-schedule-tap-fix",
+    "file": "planuf-style-09-planuf-v28-popover-front-and-schedule-tap-fix.css",
+    "bytes": 1479
+  },
+  {
+    "type": "style",
+    "order": 10,
+    "source_id": "planuf-v32-working-mobile-header-popover-buttons",
+    "file": "planuf-style-10-planuf-v32-working-mobile-header-popover-buttons.css",
+    "bytes": 4406
+  },
+  {
+    "type": "style",
+    "order": 11,
+    "source_id": "planuf-v33-profile-management-fixes",
+    "file": "planuf-style-11-planuf-v33-profile-management-fixes.css",
+    "bytes": 250
+  },
+  {
+    "type": "style",
+    "order": 12,
+    "source_id": "planuf-v34-archive-delete-icons",
+    "file": "planuf-style-12-planuf-v34-archive-delete-icons.css",
+    "bytes": 98614
+  },
+  {
+    "type": "style",
+    "order": 13,
+    "source_id": "planuf-v23-late-profile-circle-override",
+    "file": "planuf-style-13-planuf-v23-late-profile-circle-override.css",
+    "bytes": 1500
+  },
+  {
+    "type": "style",
+    "order": 14,
+    "source_id": "planuf-v24-profile-circle-scope-override",
+    "file": "planuf-style-14-planuf-v24-profile-circle-scope-override.css",
+    "bytes": 3204
+  },
+  {
+    "type": "style",
+    "order": 15,
+    "source_id": "planuf-v26-mobile-zoom-grid-fix",
+    "file": "planuf-style-15-planuf-v26-mobile-zoom-grid-fix.css",
+    "bytes": 2929
+  },
+  {
+    "type": "style",
+    "order": 16,
+    "source_id": "planuf-v30-profile-popover-top-layer-fix",
+    "file": "planuf-style-16-planuf-v30-profile-popover-top-layer-fix.css",
+    "bytes": 2252
+  },
+  {
+    "type": "style",
+    "order": 17,
+    "source_id": "planuf-v36-profile-icon-alignment-fix",
+    "file": "planuf-style-17-planuf-v36-profile-icon-alignment-fix.css",
+    "bytes": 5468
+  },
+  {
+    "type": "style",
+    "order": 18,
+    "source_id": "planuf-v38-profile-header-layout-fix",
+    "file": "planuf-style-18-planuf-v38-profile-header-layout-fix.css",
+    "bytes": 4608
+  },
+  {
+    "type": "style",
+    "order": 19,
+    "source_id": "planuf-v39-mobile-profile-and-dictation-fix",
+    "file": "planuf-style-19-planuf-v39-mobile-profile-and-dictation-fix.css",
+    "bytes": 6638
+  },
+  {
+    "type": "style",
+    "order": 20,
+    "source_id": "planuf-v46-safe-mobile-icon-layout-patch",
+    "file": "planuf-style-20-planuf-v46-safe-mobile-icon-layout-patch.css",
+    "bytes": 9781
+  },
+  {
+    "type": "style",
+    "order": 21,
+    "source_id": "planuf-v47-selected-button-feedback",
+    "file": "planuf-style-21-planuf-v47-selected-button-feedback.css",
+    "bytes": 1466
+  },
+  {
+    "type": "style",
+    "order": 22,
+    "source_id": "planuf-v47-message-toast-style",
+    "file": "planuf-style-22-planuf-v47-message-toast-style.css",
+    "bytes": 730
+  },
+  {
+    "type": "style",
+    "order": 23,
+    "source_id": "planuf-v48-web-push-and-refresh-style",
+    "file": "planuf-style-23-planuf-v48-web-push-and-refresh-style.css",
+    "bytes": 631
+  },
+  {
+    "type": "style",
+    "order": 24,
+    "source_id": "planuf-v49-chat-notification-and-checkbox-fix",
+    "file": "planuf-style-24-planuf-v49-chat-notification-and-checkbox-fix.css",
+    "bytes": 4789
+  },
+  {
+    "type": "style",
+    "order": 25,
+    "source_id": "planuf-v58-mobile-nav-route-hotfix-style",
+    "file": "planuf-style-25-planuf-v58-mobile-nav-route-hotfix-style.css",
+    "bytes": 1595
+  },
+  {
+    "type": "style",
+    "order": 26,
+    "source_id": "planuf-v59-chat-bubble-alignment-style",
+    "file": "planuf-style-26-planuf-v59-chat-bubble-alignment-style.css",
+    "bytes": 2356
+  },
+  {
+    "type": "script",
+    "order": 0,
+    "source_id": "planuf-v25-ideas-wall-grid-fit",
+    "script_type": null,
+    "file": "planuf-script-00-planuf-v25-ideas-wall-grid-fit.js",
+    "bytes": 777
+  },
+  {
+    "type": "script",
+    "order": 1,
+    "source_id": null,
+    "script_type": null,
+    "file": "planuf-script-01-inline.js",
+    "bytes": 1188
+  },
+  {
+    "type": "script",
+    "order": 2,
+    "source_id": null,
+    "script_type": "module",
+    "file": "planuf-script-02-inline.mjs",
+    "bytes": 496911
+  },
+  {
+    "type": "script",
+    "order": 3,
+    "source_id": "planuf-v14-social-dictation-enhancer",
+    "script_type": null,
+    "file": "planuf-script-03-planuf-v14-social-dictation-enhancer.js",
+    "bytes": 172894
+  },
+  {
+    "type": "script",
+    "order": 4,
+    "source_id": "planuf-v26-first-load-scale-guard",
+    "script_type": null,
+    "file": "planuf-script-04-planuf-v26-first-load-scale-guard.js",
+    "bytes": 956
+  },
+  {
+    "type": "script",
+    "order": 5,
+    "source_id": "planuf-v31-route-scroll-fix",
+    "script_type": null,
+    "file": "planuf-script-05-planuf-v31-route-scroll-fix.js",
+    "bytes": 1854
+  },
+  {
+    "type": "script",
+    "order": 6,
+    "source_id": "planuf-v32-click-safety",
+    "script_type": null,
+    "file": "planuf-script-06-planuf-v32-click-safety.js",
+    "bytes": 312
+  },
+  {
+    "type": "script",
+    "order": 7,
+    "source_id": "planuf-v34-firebase-admin-user-actions",
+    "script_type": null,
+    "file": "planuf-script-07-planuf-v34-firebase-admin-user-actions.js",
+    "bytes": 1896
+  },
+  {
+    "type": "script",
+    "order": 8,
+    "source_id": "planuf-v38-profile-header-dom-fix",
+    "script_type": null,
+    "file": "planuf-script-08-planuf-v38-profile-header-dom-fix.js",
+    "bytes": 681
+  },
+  {
+    "type": "script",
+    "order": 9,
+    "source_id": "planuf-v39-login-and-profile-dom-fix",
+    "script_type": null,
+    "file": "planuf-script-09-planuf-v39-login-and-profile-dom-fix.js",
+    "bytes": 2420
+  },
+  {
+    "type": "script",
+    "order": 10,
+    "source_id": "planuf-v47-direct-firestore-messaging-sync",
+    "script_type": null,
+    "file": "planuf-script-10-planuf-v47-direct-firestore-messaging-sync.js",
+    "bytes": 6876
+  },
+  {
+    "type": "script",
+    "order": 11,
+    "source_id": "planuf-v48-web-push-and-message-auto-refresh",
+    "script_type": null,
+    "file": "planuf-script-11-planuf-v48-web-push-and-message-auto-refresh.js",
+    "bytes": 10934
+  },
+  {
+    "type": "script",
+    "order": 12,
+    "source_id": "planuf-v49-chat-notification-auto-read-fix",
+    "script_type": null,
+    "file": "planuf-script-12-planuf-v49-chat-notification-auto-read-fix.js",
+    "bytes": 7691
+  },
+  {
+    "type": "script",
+    "order": 13,
+    "source_id": "planuf-v58-hash-routing-and-nav-click-hotfix",
+    "script_type": null,
+    "file": "planuf-script-13-planuf-v58-hash-routing-and-nav-click-hotfix.js",
+    "bytes": 2612
+  },
+  {
+    "type": "script",
+    "order": 14,
+    "source_id": "planuf-v59-chat-bubble-alignment-script",
+    "script_type": null,
+    "file": "planuf-script-14-planuf-v59-chat-bubble-alignment-script.js",
+    "bytes": 1156
+  }
+]

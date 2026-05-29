@@ -1,0 +1,253 @@
+
+/* V46 SAFE PATCH: CSS-only. No Firebase/Auth/Firestore writes. No startup data seeding. */
+
+/* Profile modal header: put identity on the left, action icons on the right, close X in corner. */
+.modal-window.profile-modal .modal-header.profile-detail-header{
+  position:relative!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto!important;
+  grid-template-areas:"identity actions"!important;
+  align-items:start!important;
+  gap:12px!important;
+  padding:16px 54px 14px 16px!important;
+  min-height:96px!important;
+  border-bottom:0!important;
+}
+.modal-window.profile-modal .profile-title-row{
+  grid-area:identity!important;
+  min-width:0!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:14px!important;
+  padding:0!important;
+  margin:0!important;
+}
+.modal-window.profile-modal .profile-title-row > div{
+  min-width:0!important;
+  flex:1 1 auto!important;
+}
+.modal-window.profile-modal .profile-title-row h3,
+.modal-window.profile-modal #profile-detail-title{
+  display:block!important;
+  margin:0!important;
+  max-width:100%!important;
+  color:#000!important;
+  line-height:1.08!important;
+  white-space:normal!important;
+  word-break:normal!important;
+  overflow-wrap:break-word!important;
+  text-align:left!important;
+}
+.modal-window.profile-modal .profile-title-row > div > span{
+  display:block!important;
+  margin-top:4px!important;
+  max-width:100%!important;
+  color:#000!important;
+  line-height:1.12!important;
+  white-space:normal!important;
+  word-break:normal!important;
+  overflow-wrap:break-word!important;
+  text-align:left!important;
+}
+.modal-window.profile-modal .profile-detail-photo,
+.modal-window.profile-modal .profile-avatar{
+  flex:0 0 auto!important;
+  width:58px!important;
+  height:58px!important;
+  min-width:58px!important;
+  min-height:58px!important;
+}
+.modal-window.profile-modal .profile-actions{
+  grid-area:actions!important;
+  position:relative!important;
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  gap:10px!important;
+  width:auto!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:0!important;
+  z-index:20!important;
+}
+
+/* Same-size cog/archive/delete icon controls. */
+.modal-window.profile-modal .profile-actions button.icon-button.cog-button,
+.modal-window.profile-modal .profile-actions button.icon-button.asset-action-button{
+  position:relative!important;
+  flex:0 0 34px!important;
+  width:34px!important;
+  height:34px!important;
+  min-width:34px!important;
+  min-height:34px!important;
+  max-width:34px!important;
+  max-height:34px!important;
+  padding:0!important;
+  margin:0!important;
+  border:0!important;
+  border-radius:0!important;
+  display:grid!important;
+  place-items:center!important;
+  background:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+  color:transparent!important;
+  line-height:0!important;
+  transform:none!important;
+}
+.modal-window.profile-modal .profile-actions button.icon-button.cog-button .cog-mark,
+.modal-window.profile-modal .profile-actions button.icon-button.asset-action-button .asset-action-icon{
+  display:block!important;
+  width:30px!important;
+  height:30px!important;
+  min-width:30px!important;
+  min-height:30px!important;
+  max-width:30px!important;
+  max-height:30px!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background-color:transparent!important;
+  background-repeat:no-repeat!important;
+  background-position:center center!important;
+  background-size:contain!important;
+  box-shadow:none!important;
+  pointer-events:none!important;
+}
+.modal-window.profile-modal .profile-actions button.icon-button.cog-button .cog-mark::before,
+.modal-window.profile-modal .profile-actions button.icon-button.cog-button .cog-mark::after,
+.modal-window.profile-modal .profile-actions button.icon-button.asset-action-button .asset-action-icon::before,
+.modal-window.profile-modal .profile-actions button.icon-button.asset-action-button .asset-action-icon::after{
+  content:none!important;
+  display:none!important;
+}
+.modal-window.profile-modal .profile-actions .archive-action-icon{background-image:url("archive-icon.png")!important;}
+.modal-window.profile-modal .profile-actions .delete-action-icon{background-image:url("delete-icon.png")!important;}
+
+/* Close X: small, top-right, and not part of the icon row. */
+.modal-window.profile-modal .profile-actions > .icon-close,
+.modal-window.profile-modal .modal-header.profile-detail-header > .icon-close,
+.modal-window.profile-modal button.icon-close{
+  position:absolute!important;
+  top:14px!important;
+  right:14px!important;
+  z-index:60!important;
+  width:28px!important;
+  height:28px!important;
+  min-width:28px!important;
+  min-height:28px!important;
+  max-width:28px!important;
+  max-height:28px!important;
+  padding:0!important;
+  margin:0!important;
+  border-radius:999px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  background:#23C9FF!important;
+  border:2px solid #000!important;
+  color:#000!important;
+  box-shadow:none!important;
+  font-size:0!important;
+  line-height:1!important;
+  cursor:pointer!important;
+  transform:none!important;
+}
+.modal-window.profile-modal button.icon-close::before{
+  content:"×"!important;
+  display:block!important;
+  color:#000!important;
+  font-family:Arial, Helvetica, sans-serif!important;
+  font-size:22px!important;
+  font-weight:400!important;
+  line-height:22px!important;
+  transform:translateY(-1px)!important;
+  background:transparent!important;
+  border:0!important;
+}
+.modal-window.profile-modal .icon-close span,
+.modal-window.profile-modal .icon-close svg{display:none!important;}
+
+/* Mic icons: stay inside right side of fields, never floated down the page. */
+.modal-window .field .dictation-wrap,
+.profile-modal .field .dictation-wrap{
+  position:relative!important;
+  display:block!important;
+  width:100%!important;
+  overflow:visible!important;
+}
+.modal-window .field .dictation-wrap > input,
+.profile-modal .field .dictation-wrap > input,
+.modal-window .field .dictation-wrap > textarea,
+.profile-modal .field .dictation-wrap > textarea{
+  width:100%!important;
+  padding-right:54px!important;
+}
+.modal-window .field .dictation-wrap > button.dictate-button,
+.profile-modal .field .dictation-wrap > button.dictate-button{
+  position:absolute!important;
+  left:auto!important;
+  right:10px!important;
+  width:30px!important;
+  height:30px!important;
+  min-width:30px!important;
+  min-height:30px!important;
+  max-width:30px!important;
+  max-height:30px!important;
+  padding:0!important;
+  margin:0!important;
+  border:0!important;
+  border-radius:999px!important;
+  background-image:url("microphone-pro.webp")!important;
+  background-color:transparent!important;
+  background-repeat:no-repeat!important;
+  background-position:center center!important;
+  background-size:contain!important;
+  box-shadow:none!important;
+  color:transparent!important;
+  font-size:0!important;
+  line-height:0!important;
+  z-index:25!important;
+}
+.modal-window .field .dictation-wrap > input + button.dictate-button,
+.profile-modal .field .dictation-wrap > input + button.dictate-button{
+  top:50%!important;
+  bottom:auto!important;
+  transform:translateY(-50%)!important;
+}
+.modal-window .field .dictation-wrap > textarea + button.dictate-button,
+.profile-modal .field .dictation-wrap > textarea + button.dictate-button,
+.modal-window .field .dictation-wrap > textarea ~ button.dictate-button,
+.profile-modal .field .dictation-wrap > textarea ~ button.dictate-button{
+  top:auto!important;
+  bottom:12px!important;
+  transform:none!important;
+}
+.modal-window .dictate-button .mic-icon,
+.profile-modal .dictate-button .mic-icon,
+.modal-window .dictate-button::before,
+.modal-window .dictate-button::after,
+.profile-modal .dictate-button::before,
+.profile-modal .dictate-button::after{
+  display:none!important;
+  content:none!important;
+}
+
+@media (max-width:700px){
+  .modal-window.profile-modal{width:calc(100vw - 24px)!important;max-width:calc(100vw - 24px)!important;margin:0 auto!important;}
+  .modal-window.profile-modal .modal-header.profile-detail-header{grid-template-columns:minmax(0,1fr) auto!important;padding:14px 48px 14px 14px!important;gap:10px!important;min-height:92px!important;}
+  .modal-window.profile-modal .profile-title-row{gap:10px!important;}
+  .modal-window.profile-modal .profile-detail-photo,.modal-window.profile-modal .profile-avatar{width:54px!important;height:54px!important;min-width:54px!important;min-height:54px!important;}
+  .modal-window.profile-modal .profile-actions{gap:8px!important;}
+  .modal-window.profile-modal .profile-actions button.icon-button.cog-button,
+  .modal-window.profile-modal .profile-actions button.icon-button.asset-action-button{flex-basis:32px!important;width:32px!important;height:32px!important;min-width:32px!important;min-height:32px!important;}
+  .modal-window.profile-modal .profile-actions button.icon-button.cog-button .cog-mark,
+  .modal-window.profile-modal .profile-actions button.icon-button.asset-action-button .asset-action-icon{width:28px!important;height:28px!important;min-width:28px!important;min-height:28px!important;}
+  .modal-window.profile-modal .profile-actions > .icon-close,
+  .modal-window.profile-modal .modal-header.profile-detail-header > .icon-close,
+  .modal-window.profile-modal button.icon-close{top:12px!important;right:12px!important;width:26px!important;height:26px!important;min-width:26px!important;min-height:26px!important;}
+  .modal-window.profile-modal button.icon-close::before{font-size:20px!important;line-height:20px!important;}
+}

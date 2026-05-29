@@ -1,0 +1,94 @@
+
+/* v24: profile-circle colour scope.
+   People & Logins list cards stay purple. All other profile circles are blue.
+   Top bar profile circle is the button itself; no extra outer pill/outline. */
+html body #root .profile-button,
+html body .profile-button {
+  min-width:34px!important;
+  min-height:34px!important;
+  width:auto!important;
+  height:auto!important;
+  padding:0!important;
+  margin:0!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  outline:0!important;
+  border-radius:999px!important;
+  gap:0!important;
+}
+html body #root .profile-button > span:not(.profile-avatar),
+html body .profile-button > span:not(.profile-avatar) {
+  display:none!important;
+}
+html body #root .profile-button .profile-avatar,
+html body .profile-button .profile-avatar {
+  margin:0!important;
+}
+
+/* People & Logins list card initials: purple fill, yellow outline, black text */
+html body #root .record-row.profile-record .personnel-badge,
+html body #root .profile-record .personnel-badge,
+html body .record-row.profile-record .personnel-badge,
+html body .profile-record .personnel-badge,
+html body #root .people-page .personnel-badge,
+html body .people-page .personnel-badge {
+  background:#9381FF!important;
+  background-color:#9381FF!important;
+  color:#000000!important;
+  border:2px solid #FAC05E!important;
+  box-shadow:none!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+  line-height:1!important;
+  font-family:var(--planuf-font-main)!important;
+  font-weight:900!important;
+  text-transform:uppercase!important;
+  padding:2px 0 0 0!important;
+  overflow:hidden!important;
+}
+
+/* Every other profile/logo initials: blue fill, yellow outline, black text */
+html body #root .profile-avatar,
+html body #root .profile-detail-photo.placeholder-photo,
+html body #root .personnel-file-avatar,
+html body #root .initials-badge,
+html body #root .profile-initials,
+html body #root .message-pill strong,
+html body .profile-avatar,
+html body .profile-detail-photo.placeholder-photo,
+html body .personnel-file-avatar,
+html body .initials-badge,
+html body .profile-initials,
+html body .message-pill strong {
+  background:#23C9FF!important;
+  background-color:#23C9FF!important;
+  color:#000000!important;
+  border:2px solid #FAC05E!important;
+  box-shadow:none!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+  line-height:1!important;
+  font-family:var(--planuf-font-main)!important;
+  font-weight:900!important;
+  text-transform:uppercase!important;
+  padding:2px 0 0 0!important;
+  overflow:hidden!important;
+}
+
+html body #root .personnel-badge::before,
+html body #root .personnel-badge::after,
+html body #root .profile-avatar::before,
+html body #root .profile-avatar::after,
+html body #root .message-pill strong::before,
+html body #root .message-pill strong::after,
+html body #root .profile-detail-photo.placeholder-photo::before,
+html body #root .profile-detail-photo.placeholder-photo::after {
+  content:none!important;
+  display:none!important;
+}

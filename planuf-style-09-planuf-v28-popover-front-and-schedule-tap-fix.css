@@ -1,0 +1,52 @@
+
+/* v28: profile popover must sit above the whole app and keep the previous white panel styling. */
+.profile-menu-wrap{
+  position:relative!important;
+  z-index:2147483000!important;
+}
+.profile-popover{
+  position:fixed!important;
+  top:calc(env(safe-area-inset-top, 0px) + 82px)!important;
+  right:10px!important;
+  left:auto!important;
+  width:min(360px, calc(100vw - 20px))!important;
+  max-height:calc(100vh - 100px)!important;
+  overflow:auto!important;
+  z-index:2147483647!important;
+  isolation:isolate!important;
+  background:#ffffff!important;
+  color:#000000!important;
+  border:2px solid #EE6352!important;
+  box-shadow:0 18px 60px rgba(0,0,0,.35)!important;
+}
+.profile-popover *,
+.profile-popover-header,
+.profile-popover-header *,
+.profile-popover label,
+.profile-popover span,
+.profile-popover small,
+.profile-popover strong{
+  color:#000000!important;
+}
+.profile-popover input,
+.profile-popover select,
+.profile-popover textarea{
+  background:#ffffff!important;
+  color:#000000!important;
+  border:1px solid #000000!important;
+}
+.profile-popover .primary,
+.profile-popover .secondary,
+.profile-popover button:not(.icon-close){
+  color:#000000!important;
+}
+.profile-popover .icon-close{
+  color:#000000!important;
+  border-color:#000000!important;
+}
+/* Make schedule items respond as normal tap targets while keeping drag available. */
+.calendar-project{
+  touch-action:manipulation!important;
+  -webkit-user-select:none!important;
+  user-select:none!important;
+}

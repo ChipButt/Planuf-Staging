@@ -1,0 +1,34 @@
+
+/* v22: profile circles use purple fill, yellow outline, black text everywhere. */
+.personnel-badge,
+.profile-avatar,
+.profile-detail-photo.placeholder-photo,
+.personnel-file-avatar,
+.initials-badge,
+.profile-initials,
+.message-pill strong {
+  background:#9381FF!important;
+  background-color:#9381FF!important;
+  border:2px solid #FAC05E!important;
+  color:#000000!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+  font-family:var(--planuf-font-main)!important;
+  font-weight:900!important;
+  line-height:1!important;
+  text-transform:uppercase!important;
+  padding:2px 0 0 0!important;
+}
+.personnel-badge::before,
+.personnel-badge::after,
+.profile-avatar::before,
+.profile-avatar::after,
+.profile-detail-photo.placeholder-photo::before,
+.profile-detail-photo.placeholder-photo::after,
+.message-pill strong::before,
+.message-pill strong::after {
+  content:none!important;
+  display:none!important;
+}

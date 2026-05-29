@@ -1,0 +1,63 @@
+
+/* v20: black initials text and stricter profile editor dictation alignment. */
+#root .personnel-badge,
+#root .profile-avatar,
+#root .profile-detail-photo.placeholder-photo,
+#root .personnel-file-avatar,
+#root .initials-badge,
+#root .profile-initials,
+#root .message-pill strong,
+html body .personnel-badge,
+html body .profile-avatar,
+html body .profile-detail-photo.placeholder-photo,
+html body .personnel-file-avatar,
+html body .initials-badge,
+html body .profile-initials,
+html body .message-pill strong {
+  color:#000000!important;
+}
+
+/* Desktop + mobile profile editor: keep Dictate inside the field and vertically centred on single-line inputs. */
+#root .profile-modal .field .dictation-wrap,
+html body .profile-modal .field .dictation-wrap {
+  position:relative!important;
+  display:block!important;
+  width:100%!important;
+}
+#root .profile-modal .field .dictation-wrap > input,
+html body .profile-modal .field .dictation-wrap > input {
+  padding-right:58px!important;
+}
+#root .profile-modal .field .dictation-wrap > textarea,
+html body .profile-modal .field .dictation-wrap > textarea {
+  padding-right:58px!important;
+  padding-bottom:54px!important;
+}
+#root .profile-modal .field .dictation-wrap > input + button.dictate-button,
+#root .profile-modal .field .dictation-wrap > input ~ button.dictate-button,
+#root .profile-modal .field .dictation-wrap:not(:has(textarea)) > button.dictate-button,
+html body .profile-modal .field .dictation-wrap > input + button.dictate-button,
+html body .profile-modal .field .dictation-wrap > input ~ button.dictate-button,
+html body .profile-modal .field .dictation-wrap:not(:has(textarea)) > button.dictate-button {
+  position:absolute!important;
+  top:50%!important;
+  bottom:auto!important;
+  right:10px!important;
+  left:auto!important;
+  transform:translateY(-50%)!important;
+  margin:0!important;
+}
+#root .profile-modal .field .dictation-wrap > textarea + button.dictate-button,
+#root .profile-modal .field .dictation-wrap > textarea ~ button.dictate-button,
+#root .profile-modal .field .dictation-wrap:has(textarea) > button.dictate-button,
+html body .profile-modal .field .dictation-wrap > textarea + button.dictate-button,
+html body .profile-modal .field .dictation-wrap > textarea ~ button.dictate-button,
+html body .profile-modal .field .dictation-wrap:has(textarea) > button.dictate-button {
+  position:absolute!important;
+  top:auto!important;
+  bottom:10px!important;
+  right:10px!important;
+  left:auto!important;
+  transform:none!important;
+  margin:0!important;
+}

@@ -1,0 +1,79 @@
+
+/* v30: profile popover must render above the whole app, not under the homepage/scheduler/cards. */
+.app-header,
+.header-actions,
+.profile-menu-wrap {
+  overflow: visible !important;
+  isolation: auto !important;
+}
+.app-header {
+  z-index: 2147483000 !important;
+  position: sticky !important;
+}
+.profile-menu-wrap {
+  position: relative !important;
+  z-index: 2147483100 !important;
+}
+.profile-popover {
+  position: fixed !important;
+  top: calc(env(safe-area-inset-top, 0px) + 76px) !important;
+  right: max(12px, env(safe-area-inset-right, 0px) + 12px) !important;
+  left: auto !important;
+  width: min(360px, calc(100vw - 24px)) !important;
+  max-height: calc(100vh - 96px) !important;
+  overflow: auto !important;
+  z-index: 2147483647 !important;
+  background: #FFFFFF !important;
+  color: #000000 !important;
+  border: 2px solid #FAC05E !important;
+  border-radius: 16px !important;
+  box-shadow: 0 22px 80px rgba(0, 0, 0, .42) !important;
+  padding: 16px !important;
+  opacity: 1 !important;
+  transform: none !important;
+  pointer-events: auto !important;
+}
+.profile-popover *,
+.profile-popover-header,
+.profile-popover label,
+.profile-popover .password-box,
+.profile-popover span,
+.profile-popover strong,
+.profile-popover small,
+.profile-popover p {
+  color: #000000 !important;
+}
+.profile-popover input,
+.profile-popover select,
+.profile-popover textarea {
+  background: #FFFFFF !important;
+  color: #000000 !important;
+  border: 1px solid #000000 !important;
+}
+.profile-popover .primary,
+.profile-popover button.primary {
+  background: #EE6352 !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+}
+.profile-popover .secondary,
+.profile-popover button.secondary,
+.profile-popover .ghost,
+.profile-popover button.ghost {
+  background: #23C9FF !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+}
+.profile-popover .icon-close {
+  background: #23C9FF !important;
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+}
+@media (max-width: 700px) {
+  .profile-popover {
+    top: calc(env(safe-area-inset-top, 0px) + 72px) !important;
+    right: 10px !important;
+    width: min(350px, calc(100vw - 20px)) !important;
+    max-height: calc(100svh - 86px) !important;
+  }
+}

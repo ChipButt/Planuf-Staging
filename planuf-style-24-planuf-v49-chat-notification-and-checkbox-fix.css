@@ -1,0 +1,156 @@
+
+/* V49: mobile-friendly chat notifications and corrected recipient checkboxes */
+.planuf-live-message-toast,
+.planuf-top-message-banner{
+  position:fixed!important;
+  top:calc(env(safe-area-inset-top,0px) + 0px)!important;
+  left:50%!important;
+  bottom:auto!important;
+  width:min(430px, calc(100vw - 20px))!important;
+  z-index:2147483647!important;
+  transform:translate(-50%,-120%)!important;
+  opacity:0!important;
+  background:#ffffff!important;
+  color:#000000!important;
+  border:3px solid #000000!important;
+  border-top:0!important;
+  border-radius:0 0 18px 18px!important;
+  padding:12px 14px 14px!important;
+  box-shadow:0 16px 48px rgba(0,0,0,.34)!important;
+  display:grid!important;
+  grid-template-columns:1fr auto!important;
+  gap:4px 12px!important;
+  align-items:center!important;
+  transition:transform .34s cubic-bezier(.2,.85,.2,1), opacity .2s ease!important;
+  cursor:pointer!important;
+}
+.planuf-live-message-toast.show,
+.planuf-top-message-banner.show{
+  opacity:1!important;
+  transform:translate(-50%,0)!important;
+}
+.planuf-live-message-toast strong,
+.planuf-top-message-banner strong{
+  grid-column:1 / -1!important;
+  color:#000!important;
+  font-size:15px!important;
+  line-height:1.1!important;
+}
+.planuf-live-message-toast span,
+.planuf-top-message-banner span{
+  color:#000!important;
+  font-size:13px!important;
+  line-height:1.25!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+.planuf-live-message-toast button,
+.planuf-top-message-banner button{
+  min-height:30px!important;
+  height:30px!important;
+  padding:0 10px!important;
+  border-radius:999px!important;
+  border:2px solid #000!important;
+  background:#FAC05E!important;
+  color:#000!important;
+  font-size:12px!important;
+  font-weight:900!important;
+}
+.chat-header .secondary.square-chat-action,
+.chat-header button{
+  margin-left:6px;
+}
+.chat-header button:nth-last-child(1):not(:only-child){
+  /* Mark Read is deliberately hidden; read state is automatic in v49. */
+}
+button[data-planuf-hidden-markread="true"]{display:none!important;}
+.compact-new-chat-panel .chat-recipient-picker,
+.chat-recipient-picker{
+  display:grid!important;
+  gap:12px!important;
+}
+.chat-checkbox-grid{
+  display:grid!important;
+  grid-template-columns:repeat(auto-fit, minmax(145px,1fr))!important;
+  gap:8px!important;
+}
+.chat-check-row{
+  position:relative!important;
+  display:grid!important;
+  grid-template-columns:22px minmax(0,1fr)!important;
+  align-items:center!important;
+  gap:8px!important;
+  min-height:36px!important;
+  padding:6px 8px!important;
+  border:2px solid #000!important;
+  border-radius:12px!important;
+  background:#fff!important;
+  color:#000!important;
+  cursor:pointer!important;
+  overflow:hidden!important;
+}
+.chat-check-row.everyone-row{max-width:220px!important;}
+.chat-check-row input[type="checkbox"]{
+  position:static!important;
+  display:block!important;
+  appearance:auto!important;
+  -webkit-appearance:checkbox!important;
+  width:18px!important;
+  height:18px!important;
+  min-width:18px!important;
+  min-height:18px!important;
+  max-width:18px!important;
+  max-height:18px!important;
+  margin:0!important;
+  padding:0!important;
+  opacity:1!important;
+  transform:none!important;
+  z-index:2!important;
+  accent-color:#FAC05E!important;
+}
+.chat-check-row span{
+  display:block!important;
+  min-width:0!important;
+  color:#000!important;
+  font-size:13px!important;
+  line-height:1.1!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+  white-space:nowrap!important;
+  padding:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.chat-check-row:has(input:checked){
+  background:#FAC05E!important;
+  border-color:#000!important;
+  box-shadow:inset 0 0 0 2px rgba(0,0,0,.18)!important;
+}
+.conversation-body{
+  scroll-behavior:smooth!important;
+}
+.planuf-read-hint{
+  position:sticky;
+  bottom:0;
+  display:block;
+  text-align:center;
+  font-size:11px;
+  color:#000!important;
+  background:rgba(250,192,94,.94);
+  border:1px solid #000;
+  border-radius:999px;
+  padding:4px 8px;
+  margin:6px auto 0;
+  width:max-content;
+  max-width:90%;
+  pointer-events:none;
+}
+@media (max-width:700px){
+  .messages-layout{grid-template-columns:1fr!important;gap:12px!important;}
+  .chat-sidebar,.chat-detail{min-width:0!important;width:100%!important;}
+  .chat-checkbox-grid{grid-template-columns:1fr 1fr!important;}
+  .chat-check-row{min-height:34px!important;padding:5px 7px!important;grid-template-columns:20px minmax(0,1fr)!important;}
+  .chat-check-row input[type="checkbox"]{width:16px!important;height:16px!important;min-width:16px!important;min-height:16px!important;}
+  .planuf-live-message-toast,.planuf-top-message-banner{width:calc(100vw - 14px)!important;}
+}

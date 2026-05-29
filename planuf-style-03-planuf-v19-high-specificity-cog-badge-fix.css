@@ -1,0 +1,114 @@
+
+/* v19: high-specificity override so old cog image cannot win. */
+#root .profile-actions button.icon-button.cog-button,
+#root button.icon-button.cog-button,
+html body .profile-actions button.icon-button.cog-button,
+html body button.icon-button.cog-button {
+  background:transparent!important;
+  background-image:none!important;
+  border:0!important;
+  box-shadow:none!important;
+  padding:0!important;
+  width:42px!important;
+  height:42px!important;
+  min-width:42px!important;
+  min-height:42px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+#root .profile-actions button.icon-button.cog-button .cog-mark,
+#root button.icon-button.cog-button .cog-mark,
+html body .profile-actions button.icon-button.cog-button .cog-mark,
+html body button.icon-button.cog-button .cog-mark,
+html body .cog-button .cog-mark,
+html body .cog-mark {
+  width:34px!important;
+  height:34px!important;
+  min-width:34px!important;
+  min-height:34px!important;
+  display:block!important;
+  background:transparent url("assets/embedded/planuf-style-03-planuf-v19-high-specificity-cog-badge-fix-embedded-f3de208b99a2.webp") center/contain no-repeat!important;
+  background-image:url("assets/embedded/planuf-style-03-planuf-v19-high-specificity-cog-badge-fix-embedded-f3de208b99a2.webp")!important;
+  background-size:contain!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  background-color:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  color:transparent!important;
+  font-size:0!important;
+  line-height:0!important;
+  text-indent:-9999px!important;
+  overflow:hidden!important;
+}
+#root .profile-actions button.icon-button.cog-button .cog-mark::before,
+#root .profile-actions button.icon-button.cog-button .cog-mark::after,
+#root button.icon-button.cog-button .cog-mark::before,
+#root button.icon-button.cog-button .cog-mark::after,
+html body .cog-mark::before,
+html body .cog-mark::after {
+  content:none!important;
+  display:none!important;
+  background:none!important;
+  border:0!important;
+}
+
+/* profile initials style matches supplied reference */
+#root .personnel-badge,
+#root .profile-avatar,
+#root .profile-detail-photo.placeholder-photo,
+#root .personnel-file-avatar,
+#root .initials-badge,
+#root .profile-initials,
+#root .message-pill strong {
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+  font-family:var(--planuf-font-main)!important;
+  font-weight:900!important;
+  letter-spacing:0!important;
+  line-height:1!important;
+  text-transform:uppercase!important;
+  padding:2px 0 0 0!important;
+  overflow:hidden!important;
+  border-radius:999px!important;
+  box-sizing:border-box!important;
+  background:#23C9FF!important;
+  border:2px solid #FAC05E!important;
+  color:#9381FF!important;
+}
+#root .personnel-badge {
+  width:52px!important;
+  height:52px!important;
+  min-width:52px!important;
+  min-height:52px!important;
+  font-size:.86rem!important;
+}
+#root .profile-avatar,
+#root .message-pill strong {
+  width:34px!important;
+  height:34px!important;
+  min-width:34px!important;
+  min-height:34px!important;
+  font-size:.68rem!important;
+}
+#root .profile-detail-photo.placeholder-photo,
+#root .personnel-file-avatar,
+#root .initials-badge,
+#root .profile-initials {
+  width:58px!important;
+  height:58px!important;
+  min-width:58px!important;
+  min-height:58px!important;
+  font-size:.95rem!important;
+}
+#root .personnel-badge::before,
+#root .personnel-badge::after,
+#root .profile-avatar::before,
+#root .profile-avatar::after {
+  content:none!important;
+  display:none!important;
+}

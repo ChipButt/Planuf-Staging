@@ -1,0 +1,42 @@
+
+/* v23: final winning rule placed after the app script so no earlier blue-circle rule can win. */
+html body #root .personnel-badge,
+html body #root .profile-avatar,
+html body #root .profile-detail-photo.placeholder-photo,
+html body #root .personnel-file-avatar,
+html body #root .initials-badge,
+html body #root .profile-initials,
+html body #root .message-pill strong,
+html body .personnel-badge,
+html body .profile-avatar,
+html body .profile-detail-photo.placeholder-photo,
+html body .personnel-file-avatar,
+html body .initials-badge,
+html body .profile-initials,
+html body .message-pill strong {
+  background:#9381FF!important;
+  background-color:#9381FF!important;
+  color:#000000!important;
+  border:2px solid #FAC05E!important;
+  box-shadow:none!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+  line-height:1!important;
+  font-family:var(--planuf-font-main)!important;
+  font-weight:900!important;
+  text-transform:uppercase!important;
+  overflow:hidden!important;
+}
+html body #root .personnel-badge::before,
+html body #root .personnel-badge::after,
+html body #root .profile-avatar::before,
+html body #root .profile-avatar::after,
+html body #root .message-pill strong::before,
+html body #root .message-pill strong::after,
+html body #root .profile-detail-photo.placeholder-photo::before,
+html body #root .profile-detail-photo.placeholder-photo::after {
+  content:none!important;
+  display:none!important;
+}

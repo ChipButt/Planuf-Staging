@@ -1,0 +1,75 @@
+
+/* V59: Chat bubbles - own messages right/light blue, other messages left/white. */
+.conversation-body{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  gap:8px!important;
+}
+.conversation-body .message,
+.conversation-body article.message,
+.conversation-body [data-message-id]{
+  width:auto!important;
+  max-width:66.666%!important;
+  min-width:0!important;
+  margin-top:4px!important;
+  margin-bottom:4px!important;
+  padding:9px 11px!important;
+  border:2px solid #000!important;
+  border-radius:16px!important;
+  color:#000!important;
+  overflow-wrap:anywhere!important;
+  word-break:break-word!important;
+  box-shadow:none!important;
+}
+.conversation-body .message.own,
+.conversation-body article.message.own,
+.conversation-body [data-message-owner="self"],
+.conversation-body [data-from="self"],
+.conversation-body [data-current-user-message="true"],
+.conversation-body [data-message-id].own{
+  align-self:flex-end!important;
+  margin-left:auto!important;
+  margin-right:0!important;
+  background:#23C9FF!important;
+  border-bottom-right-radius:6px!important;
+  text-align:left!important;
+}
+.conversation-body .message:not(.own),
+.conversation-body article.message:not(.own),
+.conversation-body [data-message-id]:not(.own):not([data-message-owner="self"]):not([data-from="self"]):not([data-current-user-message="true"]){
+  align-self:flex-start!important;
+  margin-left:0!important;
+  margin-right:auto!important;
+  background:#ffffff!important;
+  border-bottom-left-radius:6px!important;
+  text-align:left!important;
+}
+.conversation-body .message p,
+.conversation-body article.message p,
+.conversation-body [data-message-id] p{
+  margin:0!important;
+  color:#000!important;
+  line-height:1.28!important;
+}
+.conversation-body .message small,
+.conversation-body article.message small,
+.conversation-body [data-message-id] small{
+  display:block!important;
+  margin-top:4px!important;
+  color:#333!important;
+  font-size:10px!important;
+  line-height:1.1!important;
+}
+.conversation-body .message.own small,
+.conversation-body article.message.own small,
+.conversation-body [data-message-id].own small{
+  text-align:right!important;
+}
+@media (max-width:430px){
+  .conversation-body .message,
+  .conversation-body article.message,
+  .conversation-body [data-message-id]{
+    max-width:66.666%!important;
+  }
+}

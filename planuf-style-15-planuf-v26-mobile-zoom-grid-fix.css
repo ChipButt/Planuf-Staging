@@ -1,0 +1,129 @@
+
+/* v26: first-load mobile sizing guard + clean ideas-wall grid. */
+html,
+body,
+#root {
+  width:100%!important;
+  max-width:100vw!important;
+  min-width:0!important;
+  overflow-x:hidden!important;
+  -webkit-text-size-adjust:100%!important;
+  text-size-adjust:100%!important;
+}
+html,
+body {
+  margin:0!important;
+  padding:0!important;
+  zoom:1!important;
+}
+body {
+  touch-action:manipulation;
+}
+input,
+select,
+textarea,
+button {
+  font-size:16px!important;
+}
+.app-shell,
+.app-header,
+.main-panel,
+.page-stack,
+.panel,
+.hero-panel,
+.topbar,
+.modal-window,
+.month-modal,
+.messages-layout,
+.adaptive-layout,
+.dashboard-grid,
+.two-column,
+.form-grid {
+  min-width:0!important;
+  max-width:100%!important;
+}
+.main-panel,
+.app-header {
+  overflow-x:hidden!important;
+}
+@media (max-width:700px) {
+  html,
+  body,
+  #root {
+    width:100vw!important;
+    max-width:100vw!important;
+  }
+  .app-shell {
+    display:block!important;
+    width:100vw!important;
+    max-width:100vw!important;
+    min-width:0!important;
+    overflow-x:hidden!important;
+  }
+  .main-panel {
+    width:100vw!important;
+    max-width:100vw!important;
+    min-width:0!important;
+    margin:0!important;
+    padding-left:8px!important;
+    padding-right:8px!important;
+    overflow-x:hidden!important;
+  }
+  .app-header {
+    width:100vw!important;
+    max-width:100vw!important;
+    min-width:0!important;
+    margin:0!important;
+    padding-left:8px!important;
+    padding-right:8px!important;
+    overflow:hidden!important;
+  }
+  .nav-tabs {
+    display:grid!important;
+    grid-template-columns:repeat(5,minmax(0,1fr))!important;
+    gap:3px!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    overflow:hidden!important;
+  }
+  .nav-tab {
+    min-width:0!important;
+    width:100%!important;
+    padding-left:1px!important;
+    padding-right:1px!important;
+    font-size:clamp(8.5px,2.45vw,10.5px)!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:clip!important;
+  }
+}
+
+/* Remove the bad v25 edge overlays and use one consistent divided grid. */
+.ideas-wall {
+  position:relative!important;
+  overflow:hidden!important;
+  box-shadow:none!important;
+  border:1px solid #FFFFFF!important;
+  background-color:#9381FF!important;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.9) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.9) 1px, transparent 1px)!important;
+  background-position:0 0!important;
+  background-size:calc(100% / 4) calc(100% / 6)!important;
+  background-origin:border-box!important;
+  background-clip:border-box!important;
+}
+.ideas-wall::before,
+.ideas-wall::after {
+  content:none!important;
+  display:none!important;
+  border:0!important;
+  background:none!important;
+  box-shadow:none!important;
+}
+@media (min-width:760px) {
+  .ideas-wall {
+    background-size:calc(100% / 6) calc(100% / 6)!important;
+  }
+}

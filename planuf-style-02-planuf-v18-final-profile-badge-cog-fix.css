@@ -1,0 +1,191 @@
+
+/* v18: exact requested profile badge style + exact attached silver cog. */
+.personnel-badge,
+.profile-avatar,
+.profile-detail-photo.placeholder-photo,
+.personnel-file-avatar,
+.initials-badge,
+.profile-initials,
+.message-pill strong {
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+  font-family:var(--planuf-font-main)!important;
+  font-weight:900!important;
+  letter-spacing:0!important;
+  line-height:1!important;
+  text-transform:uppercase!important;
+  padding:2px 0 0 0!important;
+  overflow:hidden!important;
+  border-radius:999px!important;
+  box-sizing:border-box!important;
+}
+.personnel-badge {
+  width:52px!important;
+  height:52px!important;
+  min-width:52px!important;
+  min-height:52px!important;
+  background:#23C9FF!important;
+  border:2px solid #FAC05E!important;
+  color:#9381FF!important;
+  font-size:.86rem!important;
+}
+.profile-avatar,
+.message-pill strong {
+  width:34px!important;
+  height:34px!important;
+  min-width:34px!important;
+  min-height:34px!important;
+  background:#23C9FF!important;
+  border:2px solid #FAC05E!important;
+  color:#9381FF!important;
+  font-size:.68rem!important;
+}
+.profile-detail-photo.placeholder-photo,
+.personnel-file-avatar,
+.initials-badge,
+.profile-initials {
+  width:58px!important;
+  height:58px!important;
+  min-width:58px!important;
+  min-height:58px!important;
+  background:#23C9FF!important;
+  border:2px solid #FAC05E!important;
+  color:#9381FF!important;
+  font-size:.95rem!important;
+}
+.personnel-badge::before,
+.personnel-badge::after,
+.profile-avatar::before,
+.profile-avatar::after,
+.message-pill strong::before,
+.message-pill strong::after,
+.profile-detail-photo.placeholder-photo::before,
+.profile-detail-photo.placeholder-photo::after {
+  content:none!important;
+  display:none!important;
+}
+
+/* exact supplied settings-cog-pro image only */
+.icon-button.cog-button,
+button.icon-button.cog-button,
+.profile-actions .icon-button.cog-button,
+.profile-actions button.icon-button.cog-button {
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  padding:0!important;
+  width:42px!important;
+  height:42px!important;
+  min-width:42px!important;
+  min-height:42px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+.cog-mark,
+button .cog-mark,
+.icon-button .cog-mark,
+.cog-button .cog-mark,
+.profile-actions .icon-button .cog-mark,
+.profile-actions button.icon-button .cog-mark {
+  width:34px!important;
+  height:34px!important;
+  min-width:34px!important;
+  min-height:34px!important;
+  display:block!important;
+  background:transparent url("assets/embedded/planuf-style-02-planuf-v18-final-profile-badge-cog-fix-embedded-f3de208b99a2.webp") center/contain no-repeat!important;
+  background-image:url("assets/embedded/planuf-style-02-planuf-v18-final-profile-badge-cog-fix-embedded-f3de208b99a2.webp")!important;
+  background-size:contain!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  background-color:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  color:transparent!important;
+  font-size:0!important;
+  line-height:0!important;
+  text-indent:-9999px!important;
+  overflow:hidden!important;
+}
+.cog-mark::before,
+.cog-mark::after,
+button .cog-mark::before,
+button .cog-mark::after,
+.icon-button .cog-mark::before,
+.icon-button .cog-mark::after,
+.cog-button .cog-mark::before,
+.cog-button .cog-mark::after {
+  content:none!important;
+  display:none!important;
+  background:none!important;
+  border:0!important;
+}
+
+/* dictation button positioning retained */
+.dictation-wrap{position:relative!important;}
+.dictation-wrap > input + .dictate-button,
+.dictation-wrap > select + .dictate-button,
+.field .dictation-wrap:not(:has(textarea)) > .dictate-button {
+  top:50%!important;
+  right:10px!important;
+  bottom:auto!important;
+  transform:translateY(-50%)!important;
+}
+.dictation-wrap > textarea + .dictate-button,
+.textarea-wrap > .dictate-button,
+.field .dictation-wrap:has(textarea) > .dictate-button {
+  top:auto!important;
+  bottom:10px!important;
+  right:10px!important;
+  transform:none!important;
+}
+.dictation-wrap > input,
+.dictation-wrap > select { padding-right:54px!important; }
+.dictation-wrap > textarea { padding-right:54px!important; padding-bottom:52px!important; }
+.dictate-button,
+button.dictate-button {
+  width:34px!important;
+  height:34px!important;
+  min-width:34px!important;
+  min-height:34px!important;
+  margin:0!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding:4px!important;
+  border-radius:999px!important;
+  background:#EE6352!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+.dictate-button .mic-icon,
+button .mic-icon,
+button.dictate-button .mic-icon,
+.inline-dictate .mic-icon {
+  width:26px!important;
+  height:26px!important;
+  min-width:26px!important;
+  min-height:26px!important;
+  display:block!important;
+  background:transparent url("assets/embedded/planuf-style-02-planuf-v18-final-profile-badge-cog-fix-embedded-9e308e16827e.webp") center/contain no-repeat!important;
+  background-image:url("assets/embedded/planuf-style-02-planuf-v18-final-profile-badge-cog-fix-embedded-9e308e16827e.webp")!important;
+  background-size:contain!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  color:transparent!important;
+  font-size:0!important;
+  line-height:0!important;
+  text-indent:-9999px!important;
+  overflow:hidden!important;
+}
+.mic-icon::before,
+.mic-icon::after,
+.mic-capsule {
+  content:none!important;
+  display:none!important;
+  background:none!important;
+  border:0!important;
+}

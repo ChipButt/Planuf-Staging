@@ -1,0 +1,35 @@
+
+/* v21: the dictation wrapper was stretching taller than the input on desktop. Lock single-line wrappers to the input height, then centre the mic inside that 48px box. */
+#root .profile-modal .field .dictation-wrap:not(:has(textarea)),
+html body .profile-modal .field .dictation-wrap:not(:has(textarea)) {
+  height:48px!important;
+  min-height:48px!important;
+  max-height:48px!important;
+  align-self:start!important;
+  overflow:visible!important;
+}
+#root .profile-modal .field .dictation-wrap:not(:has(textarea)) > button.dictate-button,
+html body .profile-modal .field .dictation-wrap:not(:has(textarea)) > button.dictate-button {
+  top:50%!important;
+  bottom:auto!important;
+  right:10px!important;
+  transform:translateY(-50%)!important;
+  position:absolute!important;
+  margin:0!important;
+}
+#root .personnel-badge,
+#root .profile-avatar,
+#root .profile-detail-photo.placeholder-photo,
+#root .personnel-file-avatar,
+#root .initials-badge,
+#root .profile-initials,
+#root .message-pill strong,
+html body .personnel-badge,
+html body .profile-avatar,
+html body .profile-detail-photo.placeholder-photo,
+html body .personnel-file-avatar,
+html body .initials-badge,
+html body .profile-initials,
+html body .message-pill strong {
+  color:#000!important;
+}
