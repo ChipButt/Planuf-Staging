@@ -1,0 +1,52 @@
+/* Planuf v68: pull main page content up to remove the remaining large blank vertical gap */
+:root{--planuf-content-pullup:150px!important;}
+.main-panel > .page-stack,
+.main-panel > .dashboard-grid,
+.main-panel > .two-column,
+.main-panel > .adaptive-layout,
+.main-panel > .messages-layout,
+.main-panel > section,
+.main-panel > main{
+  transform:translateY(calc(-1 * var(--planuf-content-pullup)))!important;
+  margin-bottom:calc(-1 * var(--planuf-content-pullup))!important;
+}
+.main-panel > .messages-layout{
+  height:calc(100dvh - var(--planuf-fixed-topbar,92px) + var(--planuf-content-pullup) - 8px)!important;
+  max-height:calc(100dvh - var(--planuf-fixed-topbar,92px) + var(--planuf-content-pullup) - 8px)!important;
+}
+.main-panel .page-header:first-child,
+.main-panel .hero-panel:first-child,
+.main-panel .panel:first-child{
+  margin-top:0!important;
+  padding-top:0!important;
+}
+.messages-layout .chat-header .planuf-create-idea-from-chat,
+.messages-layout .chat-header .secondary:not(.planuf-chat-back-button),
+.messages-layout .chat-header button:not(.planuf-chat-back-button):not(:first-child){
+  width:64px!important;
+  min-width:64px!important;
+  max-width:64px!important;
+  height:44px!important;
+  min-height:44px!important;
+  max-height:44px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+  padding:0!important;
+}
+.messages-layout .chat-header .planuf-create-idea-from-chat::before,
+.messages-layout .chat-header .secondary:not(.planuf-chat-back-button)::before,
+.messages-layout .chat-header button:not(.planuf-chat-back-button):not(:first-child)::before{
+  content:"Create\A Idea"!important;
+  white-space:pre-line!important;
+  font-size:11px!important;
+  line-height:1.02!important;
+  font-weight:900!important;
+  color:#000!important;
+  text-align:center!important;
+  display:block!important;
+  margin:auto!important;
+}
+@media (max-height:760px){:root{--planuf-content-pullup:128px!important;}}
+@media (min-height:820px){:root{--planuf-content-pullup:165px!important;}}
