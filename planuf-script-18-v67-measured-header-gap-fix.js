@@ -39,12 +39,12 @@
     if(window.__PLANUF_MESSAGES_ONLY_FIX_LOADED__) return;
     window.__PLANUF_MESSAGES_ONLY_FIX_LOADED__=true;
     const script=document.createElement('script');
-    script.src='planuf-script-20-v68-messages-route-class.js?v=stable1';
+    script.src='planuf-script-20-v68-messages-route-class.js?v=stable2';
     script.dataset.sourceId='planuf-v68-stable-messages-route-class';
     document.body.appendChild(script);
     const link=document.createElement('link');
     link.rel='stylesheet';
-    link.href='planuf-style-37-v68-messages-only-stable.css?v=stable1';
+    link.href='planuf-style-37-v68-messages-only-stable.css?v=stable2';
     link.dataset.sourceId='planuf-v68-stable-messages-only-layout';
     document.head.appendChild(link);
   }
