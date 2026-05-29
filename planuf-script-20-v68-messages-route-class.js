@@ -1,4 +1,4 @@
-// Planuf v68-stable: add a body class only when the active visible page is Messages, and force-bind the chat back button.
+// Planuf v69: messages route class, back-button binding, and single-line chat banner cleanup.
 (function(){
   if(window.__PLANUF_V68_MESSAGES_ROUTE_CLASS__) return;
   window.__PLANUF_V68_MESSAGES_ROUTE_CLASS__=true;
@@ -101,10 +101,41 @@
     });
   }
 
+  function cleanChatBanner(){
+    Array.from(document.querySelectorAll('.messages-layout .chat-header')).forEach(function(header){
+      header.classList.add('planuf-clean-chat-banner');
+
+      Array.from(header.querySelectorAll('*')).forEach(function(el){
+        if(el.classList && (el.classList.contains('planuf-chat-back-button') || el.classList.contains('planuf-create-idea-from-chat'))) return;
+        var t=String(el.textContent||'').trim();
+        var low=t.toLowerCase();
+        if(low.includes('chat members:') || low === 'chat members' || low.startsWith('members:')){
+          el.classList.add('planuf-hide-chat-member-line');
+          el.setAttribute('aria-hidden','true');
+        }
+        if((el.className && String(el.className).toLowerCase().includes('member')) || (el.className && String(el.className).toLowerCase().includes('chip'))){
+          if(!el.matches('h1,h2,h3,.chat-title,.planuf-chat-participant-head')){
+            el.classList.add('planuf-hide-chat-member-line');
+            el.setAttribute('aria-hidden','true');
+          }
+        }
+      });
+
+      var title=header.querySelector('h3,.chat-title,.planuf-chat-participant-head');
+      if(title){
+        var raw=String(title.textContent||'').replace(/\s+/g,' ').trim();
+        raw=raw.replace(/Chat Members:\s*.*$/i,'').trim();
+        if(raw){ title.textContent=raw; }
+        title.classList.add('planuf-chat-banner-title');
+      }
+    });
+  }
+
   function apply(){
     document.body.classList.toggle('planuf-messages-route', isMessagesActive());
     bindBackButtons();
     bindChatRows();
+    cleanChatBanner();
     if(Date.now()<suppressChatOpenUntil){ forceChatList(); }
   }
 
