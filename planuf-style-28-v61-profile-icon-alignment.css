@@ -1,0 +1,127 @@
+/* Planuf v61 profile modal icon alignment: cog/archive/delete same visual scale, actions aligned with close X, X centred */
+.modal-window.profile-modal .modal-header.profile-detail-header,
+.profile-modal .profile-detail-header{
+  position:relative!important;
+  display:flex!important;
+  align-items:flex-start!important;
+  justify-content:space-between!important;
+  gap:10px!important;
+  padding-top:12px!important;
+  padding-right:48px!important;
+}
+.modal-window.profile-modal .profile-actions,
+.profile-modal .profile-actions{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  gap:7px!important;
+  margin:0!important;
+  padding:0!important;
+  transform:translateY(-4px)!important;
+  flex:0 0 auto!important;
+}
+.modal-window.profile-modal .profile-actions button.icon-button,
+.profile-modal .profile-actions button.icon-button,
+.modal-window.profile-modal .profile-actions button.asset-action-button,
+.profile-modal .profile-actions button.asset-action-button,
+.modal-window.profile-modal .profile-actions button.cog-button,
+.profile-modal .profile-actions button.cog-button{
+  width:32px!important;
+  height:32px!important;
+  min-width:32px!important;
+  min-height:32px!important;
+  max-width:32px!important;
+  max-height:32px!important;
+  padding:0!important;
+  margin:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background-color:transparent!important;
+  display:grid!important;
+  place-items:center!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+}
+.modal-window.profile-modal .profile-actions .asset-action-icon,
+.profile-modal .profile-actions .asset-action-icon{
+  width:32px!important;
+  height:32px!important;
+  min-width:32px!important;
+  min-height:32px!important;
+  max-width:32px!important;
+  max-height:32px!important;
+  background-size:contain!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+}
+.modal-window.profile-modal .profile-actions .archive-action-icon,
+.profile-modal .profile-actions .archive-action-icon,
+.modal-window.profile-modal .profile-actions .delete-action-icon,
+.profile-modal .profile-actions .delete-action-icon{
+  width:32px!important;
+  height:32px!important;
+  background-size:contain!important;
+}
+.modal-window.profile-modal .profile-actions .cog-mark,
+.profile-modal .profile-actions .cog-mark,
+.modal-window.profile-modal .profile-actions button.cog-button .cog-mark,
+.profile-modal .profile-actions button.cog-button .cog-mark{
+  width:24px!important;
+  height:24px!important;
+  min-width:24px!important;
+  min-height:24px!important;
+  max-width:24px!important;
+  max-height:24px!important;
+  transform:none!important;
+  background-size:contain!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+}
+.modal-window.profile-modal .profile-close-corner,
+.profile-modal .profile-close-corner,
+.modal-window.profile-modal .icon-close.profile-close-corner,
+.profile-modal .icon-close.profile-close-corner{
+  position:absolute!important;
+  top:10px!important;
+  right:10px!important;
+  width:28px!important;
+  height:28px!important;
+  min-width:28px!important;
+  min-height:28px!important;
+  max-width:28px!important;
+  max-height:28px!important;
+  padding:0!important;
+  margin:0!important;
+  border:2px solid #000!important;
+  border-radius:999px!important;
+  background:#23C9FF!important;
+  color:#000!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+  font-size:0!important;
+  line-height:0!important;
+  box-shadow:none!important;
+  z-index:40!important;
+}
+.modal-window.profile-modal .profile-close-corner::before,
+.profile-modal .profile-close-corner::before,
+.modal-window.profile-modal .icon-close.profile-close-corner::before,
+.profile-modal .icon-close.profile-close-corner::before{
+  content:"×"!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  color:#000!important;
+  font-family:Arial,Helvetica,sans-serif!important;
+  font-size:22px!important;
+  font-weight:400!important;
+  line-height:24px!important;
+  text-align:center!important;
+  transform:translateY(-1px)!important;
+}
+.modal-window.profile-modal .profile-close-corner span,
+.profile-modal .profile-close-corner span,
+.modal-window.profile-modal .profile-close-corner svg,
+.profile-modal .profile-close-corner svg{display:none!important;}
