@@ -14,7 +14,6 @@
       const r=el.getBoundingClientRect();
       if(r.width>0&&r.height>0) bottom=Math.max(bottom,r.bottom);
     });
-    // include the border line under the nav, but do not include any artificial empty height
     return Math.ceil(bottom - sideRect.top + 3);
   }
   function apply(){
@@ -36,7 +35,20 @@
     const first=panel.firstElementChild;
     if(first){first.style.marginTop='0';first.style.paddingTop='0';}
   }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',apply); else apply();
+  function loadMessagesOnlyFix(){
+    if(window.__PLANUF_MESSAGES_ONLY_FIX_LOADED__) return;
+    window.__PLANUF_MESSAGES_ONLY_FIX_LOADED__=true;
+    const script=document.createElement('script');
+    script.src='planuf-script-20-v68-messages-route-class.js?v=stable1';
+    script.dataset.sourceId='planuf-v68-stable-messages-route-class';
+    document.body.appendChild(script);
+    const link=document.createElement('link');
+    link.rel='stylesheet';
+    link.href='planuf-style-37-v68-messages-only-stable.css?v=stable1';
+    link.dataset.sourceId='planuf-v68-stable-messages-only-layout';
+    document.head.appendChild(link);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',()=>{apply();loadMessagesOnlyFix();}); else {apply();loadMessagesOnlyFix();}
   window.addEventListener('resize',apply);
   window.addEventListener('orientationchange',()=>setTimeout(apply,250));
   window.addEventListener('hashchange',()=>setTimeout(apply,80));
