@@ -1,0 +1,14 @@
+/* Planuf v64: remove global top gap below fixed header on every main page */
+:root{--planuf-fixed-topbar:92px!important;}
+html,body,#root{height:100dvh!important;max-height:100dvh!important;overflow:hidden!important;margin:0 auto!important;}
+.app-shell{height:100dvh!important;max-height:100dvh!important;overflow:hidden!important;margin:0 auto!important;}
+.sidebar{position:fixed!important;top:0!important;left:50%!important;transform:translateX(-50%)!important;width:100%!important;max-width:430px!important;height:var(--planuf-fixed-topbar)!important;max-height:var(--planuf-fixed-topbar)!important;margin:0!important;padding:7px 8px 6px!important;z-index:5000!important;overflow:visible!important;background:#9381FF!important;border-bottom:3px solid #000!important;}
+.main-panel{position:relative!important;width:100%!important;max-width:430px!important;height:100dvh!important;max-height:100dvh!important;margin:0 auto!important;padding-top:var(--planuf-fixed-topbar)!important;padding-left:8px!important;padding-right:8px!important;padding-bottom:8px!important;overflow-y:auto!important;overflow-x:hidden!important;background:#9381FF!important;}
+.main-panel > *:first-child{margin-top:0!important;padding-top:0!important;}
+.main-panel .page-header:first-child,.main-panel header:first-child,.main-panel section:first-child,.main-panel .panel:first-child,.main-panel .hero-panel:first-child{margin-top:0!important;}
+.main-panel:has(.messages-layout){padding-top:var(--planuf-fixed-topbar)!important;padding-left:8px!important;padding-right:8px!important;padding-bottom:4px!important;overflow:hidden!important;}
+.main-panel:has(.messages-layout) > *{margin-top:0!important;padding-top:0!important;}
+.messages-layout{margin-top:0!important;transform:none!important;height:calc(100dvh - var(--planuf-fixed-topbar) - 4px)!important;max-height:calc(100dvh - var(--planuf-fixed-topbar) - 4px)!important;}
+.nav-list{height:40px!important;min-height:40px!important;max-height:40px!important;overflow:visible!important;}
+.nav-item,.nav-list button,.sidebar button.nav-item{height:40px!important;min-height:40px!important;max-height:40px!important;padding:4px 1px 6px!important;line-height:1.25!important;overflow:visible!important;align-items:center!important;}
+.nav-item span,.nav-item strong,.nav-list button span,.sidebar button.nav-item span{line-height:1.25!important;overflow:visible!important;padding-bottom:3px!important;display:inline-block!important;}
