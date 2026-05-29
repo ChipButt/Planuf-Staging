@@ -1,4 +1,4 @@
-// Planuf v69: messages route class, back-button binding, and single-line chat banner cleanup.
+// Planuf v71: messages route class, back-button binding, and surgical chat banner cleanup.
 (function(){
   if(window.__PLANUF_V68_MESSAGES_ROUTE_CLASS__) return;
   window.__PLANUF_V68_MESSAGES_ROUTE_CLASS__=true;
@@ -101,31 +101,42 @@
     });
   }
 
+  function stripChatMembersText(container){
+    if(!container) return;
+    var walker=document.createTreeWalker(container,NodeFilter.SHOW_TEXT,null);
+    var nodes=[];
+    while(walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(function(node){
+      var value=String(node.nodeValue||'');
+      if(/chat\s+members\s*:/i.test(value)){
+        node.nodeValue=value.replace(/\s*Chat\s+Members\s*:\s*[^\n\r]*/ig,'');
+      }
+    });
+  }
+
   function cleanChatBanner(){
     Array.from(document.querySelectorAll('.messages-layout .chat-header')).forEach(function(header){
       header.classList.add('planuf-clean-chat-banner');
+      stripChatMembersText(header);
+
+      Array.from(header.querySelectorAll('.planuf-hide-chat-member-line')).forEach(function(el){
+        el.classList.remove('planuf-hide-chat-member-line');
+        el.removeAttribute('aria-hidden');
+      });
 
       Array.from(header.querySelectorAll('*')).forEach(function(el){
-        if(el.classList && (el.classList.contains('planuf-chat-back-button') || el.classList.contains('planuf-create-idea-from-chat'))) return;
-        var t=String(el.textContent||'').trim();
-        var low=t.toLowerCase();
-        if(low.includes('chat members:') || low === 'chat members' || low.startsWith('members:')){
+        var own=String(Array.from(el.childNodes).filter(function(n){return n.nodeType===Node.TEXT_NODE;}).map(function(n){return n.nodeValue||'';}).join(' ')).trim().toLowerCase();
+        if(own.includes('chat members:') || own === 'chat members' || own.startsWith('members:')){
           el.classList.add('planuf-hide-chat-member-line');
           el.setAttribute('aria-hidden','true');
         }
-        if((el.className && String(el.className).toLowerCase().includes('member')) || (el.className && String(el.className).toLowerCase().includes('chip'))){
-          if(!el.matches('h1,h2,h3,.chat-title,.planuf-chat-participant-head')){
-            el.classList.add('planuf-hide-chat-member-line');
-            el.setAttribute('aria-hidden','true');
-          }
-        }
       });
 
-      var title=header.querySelector('h3,.chat-title,.planuf-chat-participant-head');
+      var title=header.querySelector('h1,h2,h3,.chat-title,.planuf-chat-participant-head');
       if(title){
+        stripChatMembersText(title);
         var raw=String(title.textContent||'').replace(/\s+/g,' ').trim();
-        raw=raw.replace(/Chat Members:\s*.*$/i,'').trim();
-        if(raw){ title.textContent=raw; }
+        if(raw) title.textContent=raw;
         title.classList.add('planuf-chat-banner-title');
       }
     });
