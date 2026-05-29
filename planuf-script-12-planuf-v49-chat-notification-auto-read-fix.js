@@ -68,18 +68,19 @@
       if(latest && isAtConversationBottom(latest)) markCurrentThreadRead().catch(err=>console.warn('Planuf auto-read failed',err));
     },2000);
   }
+  function removeReadHint(){
+    document.querySelectorAll('.planuf-read-hint').forEach(el=>el.remove());
+  }
   function wireAutoRead(){
     const body=document.querySelector('.conversation-body');
-    if(!body || body.dataset.planufAutoReadWired==='true') return;
+    if(!body) return;
+    removeReadHint();
+    if(body.dataset.planufAutoReadWired==='true') return;
     body.dataset.planufAutoReadWired='true';
     body.addEventListener('scroll',scheduleReadCheck,{passive:true});
     body.addEventListener('touchend',scheduleReadCheck,{passive:true});
     body.addEventListener('pointerup',scheduleReadCheck,{passive:true});
-    const hint=document.createElement('span');
-    hint.className='planuf-read-hint';
-    hint.textContent='Viewed at the latest message for 2 seconds = read';
-    body.appendChild(hint);
-    setTimeout(()=>{body.scrollTop=body.scrollHeight; scheduleReadCheck();},250);
+    setTimeout(()=>{body.scrollTop=body.scrollHeight; scheduleReadCheck(); removeReadHint();},250);
   }
   function hideManualMarkRead(){
     document.querySelectorAll('button').forEach(btn=>{
@@ -140,11 +141,11 @@
   function boot(){
     patchToastAPIs();
     fixCheckboxClickBehaviour();
-    const obs=new MutationObserver(()=>{hideManualMarkRead(); wireAutoRead();});
+    const obs=new MutationObserver(()=>{hideManualMarkRead(); wireAutoRead(); removeReadHint();});
     obs.observe(document.documentElement,{childList:true,subtree:true});
-    window.addEventListener('hashchange',()=>setTimeout(()=>{hideManualMarkRead();wireAutoRead();scheduleReadCheck();},250));
-    window.addEventListener('planuf-soft-message-refresh',()=>setTimeout(()=>{wireAutoRead();scheduleReadCheck();},250));
-    setInterval(()=>{hideManualMarkRead();wireAutoRead();scheduleReadCheck();},3500);
+    window.addEventListener('hashchange',()=>setTimeout(()=>{hideManualMarkRead();wireAutoRead();scheduleReadCheck();removeReadHint();},250));
+    window.addEventListener('planuf-soft-message-refresh',()=>setTimeout(()=>{wireAutoRead();scheduleReadCheck();removeReadHint();},250));
+    setInterval(()=>{hideManualMarkRead();wireAutoRead();scheduleReadCheck();removeReadHint();},3500);
     firebase().then(fb=>fb.authMod.onAuthStateChanged(fb.auth,()=>findAppUserId().catch(()=>{}))).catch(()=>{});
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',boot); else boot();
