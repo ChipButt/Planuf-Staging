@@ -3,6 +3,8 @@
   if(window.__PLANUF_V68_MESSAGES_ROUTE_CLASS__) return;
   window.__PLANUF_V68_MESSAGES_ROUTE_CLASS__=true;
 
+  var suppressChatOpenUntil=0;
+
   function text(el){ return String((el && (el.textContent || el.getAttribute && el.getAttribute('aria-label'))) || '').toLowerCase(); }
 
   function isMessagesActive(){
@@ -21,23 +23,40 @@
     });
   }
 
-  function goBackToChatList(event){
-    if(event){ event.preventDefault(); event.stopPropagation(); }
+  function forceChatList(){
     var layouts=Array.from(document.querySelectorAll('.messages-layout'));
     layouts.forEach(function(layout){
-      layout.classList.remove('planuf-chat-open');
-      layout.classList.remove('chat-open');
-      layout.classList.remove('show-chat');
+      layout.classList.remove('planuf-chat-open','chat-open','show-chat','open-chat','active-chat');
+      layout.dataset.planufForceList='1';
       var detail=layout.querySelector('.chat-detail,.chatView,[data-chat-detail]');
       var sidebar=layout.querySelector('.chat-sidebar,.feed,[data-chat-list]');
-      if(detail){ detail.style.display='none'; }
-      if(sidebar){ sidebar.style.display='flex'; }
+      if(detail){ detail.style.setProperty('display','none','important'); }
+      if(sidebar){ sidebar.style.setProperty('display','flex','important'); }
     });
-    if(location.hash.toLowerCase().includes('messages/')){
-      try{ history.replaceState(null,'',location.pathname+location.search+'#/messages'); }
-      catch(e){ location.hash='#/messages'; }
-    }
     document.body.classList.add('planuf-messages-route');
+  }
+
+  function goBackToChatList(event){
+    if(event){ event.preventDefault(); event.stopPropagation(); }
+    suppressChatOpenUntil=Date.now()+1500;
+    try{ sessionStorage.removeItem('planuf_active_thread_id'); }catch(e){}
+    try{ sessionStorage.removeItem('planuf_selected_thread_id'); }catch(e){}
+    try{ localStorage.removeItem('planuf_active_thread_id'); }catch(e){}
+    try{ localStorage.removeItem('planuf_selected_thread_id'); }catch(e){}
+
+    if(location.hash.toLowerCase().includes('messages/')){
+      try{ history.pushState(null,'',location.pathname+location.search+'#/messages'); }
+      catch(e){ location.hash='#/messages'; }
+      try{ window.dispatchEvent(new HashChangeEvent('hashchange')); }catch(e){ window.dispatchEvent(new Event('hashchange')); }
+    } else if(!location.hash.toLowerCase().includes('messages')){
+      location.hash='#/messages';
+    }
+
+    forceChatList();
+    setTimeout(forceChatList,50);
+    setTimeout(forceChatList,150);
+    setTimeout(forceChatList,350);
+    setTimeout(forceChatList,750);
   }
 
   function bindBackButtons(){
@@ -55,6 +74,7 @@
       if(btn.dataset.planufBackBound==='1') return;
       btn.dataset.planufBackBound='1';
       btn.addEventListener('click',goBackToChatList,true);
+      btn.addEventListener('touchstart',function(event){ event.stopPropagation(); },true);
       btn.addEventListener('touchend',goBackToChatList,true);
     });
   }
@@ -62,12 +82,14 @@
   function apply(){
     document.body.classList.toggle('planuf-messages-route', isMessagesActive());
     bindBackButtons();
+    if(Date.now()<suppressChatOpenUntil){ forceChatList(); }
   }
 
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',apply); else apply();
-  window.addEventListener('hashchange',function(){ setTimeout(apply,60); });
+  window.addEventListener('hashchange',function(){ setTimeout(apply,20); setTimeout(apply,120); });
+  window.addEventListener('popstate',function(){ setTimeout(apply,20); setTimeout(apply,120); });
   window.addEventListener('resize',apply);
   document.addEventListener('click',function(){ setTimeout(apply,80); },true);
   var timer=null;
-  new MutationObserver(function(){ clearTimeout(timer); timer=setTimeout(apply,100); }).observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['class','style','aria-current']});
+  new MutationObserver(function(){ clearTimeout(timer); timer=setTimeout(apply,60); }).observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['class','style','aria-current','data-planuf-force-list']});
 })();
