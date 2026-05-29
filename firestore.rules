@@ -1,0 +1,74 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function emailPasswordSignedIn() {
+      return request.auth != null
+        && request.auth.token.firebase.sign_in_provider == 'password';
+    }
+
+    match /users/{documentId} {
+      allow read, write: if emailPasswordSignedIn();
+    }
+
+    match /usersByUid/{uid} {
+      allow read, write: if emailPasswordSignedIn();
+    }
+
+    match /profiles/{documentId} {
+      allow read, write: if emailPasswordSignedIn();
+    }
+
+    match /ideas/{documentId} {
+      allow read, write: if emailPasswordSignedIn();
+    }
+
+    match /productionBudgets/{documentId} {
+      allow read, write: if emailPasswordSignedIn();
+    }
+
+    match /socialBudgets/{documentId} {
+      allow read, write: if emailPasswordSignedIn();
+    }
+
+    match /marketingPlans/{documentId} {
+      allow read, write: if emailPasswordSignedIn();
+    }
+
+    match /scheduleItems/{documentId} {
+      allow read, write: if emailPasswordSignedIn();
+    }
+
+    match /messages/{documentId} {
+      allow read, write: if emailPasswordSignedIn();
+    }
+
+    match /messageThreads/{documentId} {
+      allow read, write: if emailPasswordSignedIn();
+    }
+
+    match /pushSubscriptions/{documentId} {
+      allow read, write: if emailPasswordSignedIn();
+    }
+
+    match /equipment/{documentId} {
+      allow read, write: if emailPasswordSignedIn();
+    }
+
+    match /rateCards/{documentId} {
+      allow read, write: if emailPasswordSignedIn();
+    }
+
+    match /suppliers/{documentId} {
+      allow read, write: if emailPasswordSignedIn();
+    }
+
+    match /adminSettings/{documentId} {
+      allow read, write: if emailPasswordSignedIn();
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
