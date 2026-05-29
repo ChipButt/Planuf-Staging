@@ -39,13 +39,13 @@
     if(window.__PLANUF_MESSAGES_ONLY_FIX_LOADED__) return;
     window.__PLANUF_MESSAGES_ONLY_FIX_LOADED__=true;
     const script=document.createElement('script');
-    script.src='planuf-script-20-v68-messages-route-class.js?v=stable2';
-    script.dataset.sourceId='planuf-v68-stable-messages-route-class';
+    script.src='planuf-script-20-v68-messages-route-class.js?v=stable4';
+    script.dataset.sourceId='planuf-v69-chat-banner-cleanup';
     document.body.appendChild(script);
     const link=document.createElement('link');
     link.rel='stylesheet';
-    link.href='planuf-style-37-v68-messages-only-stable.css?v=stable2';
-    link.dataset.sourceId='planuf-v68-stable-messages-only-layout';
+    link.href='planuf-style-37-v68-messages-only-stable.css?v=stable4';
+    link.dataset.sourceId='planuf-v69-chat-banner-layout';
     document.head.appendChild(link);
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',()=>{apply();loadMessagesOnlyFix();}); else {apply();loadMessagesOnlyFix();}
