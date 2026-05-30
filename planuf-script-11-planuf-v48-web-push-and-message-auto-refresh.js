@@ -155,6 +155,7 @@
     if(!appUserId) return;
     currentAppUserId=appUserId;
     const seenKey='planuf_push_seen_message_ids_'+appUserId;
+    const baselineKey='planuf_push_seen_baseline_v2_'+appUserId;
     const seen=new Set(safeJsonParse(localStorage.getItem(seenKey),[]));
     const q=fb.fsMod.query(fb.fsMod.collection(fb.db,'messages'), fb.fsMod.where('toUserIds','array-contains',appUserId));
     const snap=await fb.fsMod.getDocs(q);
@@ -162,6 +163,16 @@
     const hash=stableHash(messages);
     const hasChanged=hash && hash!==lastMessagesHash;
     lastMessagesHash=hash;
+
+    const hasBaseline=localStorage.getItem(baselineKey)==='1';
+    if(!hasBaseline){
+      messages.forEach(m=>seen.add(m.id));
+      localStorage.setItem(seenKey,JSON.stringify(Array.from(seen).slice(-800)));
+      localStorage.setItem(baselineKey,'1');
+      window.dispatchEvent(new CustomEvent('planuf-message-auto-refresh',{detail:{appUserId,allMessages:messages,baseline:true}}));
+      return;
+    }
+
     const usersCache=await fb.fsMod.getDocs(fb.fsMod.collection(fb.db,'users')).catch(()=>null);
     const newUnread=[];
     messages.forEach(m=>{
