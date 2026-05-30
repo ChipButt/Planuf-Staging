@@ -103,18 +103,22 @@
         const appUserId=appUserDoc?.id || appUserDoc?.data()?.id;
         if(!appUserId) return;
         const seenKey='planuf_seen_message_ids_'+appUserId;
+        const baselineKey='planuf_seen_message_baseline_v2_'+appUserId;
         const seen=new Set(JSON.parse(localStorage.getItem(seenKey)||'[]'));
-        const startedAt=Date.now();
         const q=fb.fsMod.query(fb.fsMod.collection(fb.db,'messages'), fb.fsMod.where('toUserIds','array-contains',appUserId));
         fb.fsMod.onSnapshot(q, snap=>{
           const allSeen=new Set(seen);
+          const hasBaseline=localStorage.getItem(baselineKey)==='1';
           snap.docChanges().forEach(change=>{
             if(change.type!=='added' && change.type!=='modified') return;
             const data={id:change.doc.id,...(change.doc.data()||{})};
             const readBy=Array.isArray(data.readByUserIds)?data.readByUserIds:[];
-            if(data.fromUserId===appUserId || readBy.includes(appUserId)) return;
-            const createdMs=Date.parse(data.createdAt||'')||0;
-            if(!seen.has(data.id) && createdMs && createdMs > startedAt-5000){
+            if(data.fromUserId===appUserId || readBy.includes(appUserId)) { allSeen.add(data.id); return; }
+            if(!hasBaseline){
+              allSeen.add(data.id);
+              return;
+            }
+            if(!seen.has(data.id)){
               const senderDoc=usersSnap.docs.find(d=>d.id===data.fromUserId);
               const sender=senderDoc?.data()?.displayName || '';
               showToast(data, sender);
@@ -122,6 +126,7 @@
             allSeen.add(data.id);
           });
           localStorage.setItem(seenKey, JSON.stringify(Array.from(allSeen).slice(-500)));
+          if(!hasBaseline) localStorage.setItem(baselineKey,'1');
         }, err=>console.error('Planuf unread message listener failed', err));
       }catch(err){ console.error('Planuf unread listener setup failed', err); }
     });
