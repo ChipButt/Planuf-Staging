@@ -16,10 +16,7 @@
     messaging:"https://www.gstatic.com/firebasejs/10.12.5/firebase-messaging.js"
   };
   const POLL_MS=4000;
-  // Add your Firebase Console Web Push certificate key here when available.
-  // Without this, foreground/browser notifications still work while the app is open,
-  // but true background push requires the VAPID public key and deployed Cloud Function.
-  const VAPID_PUBLIC_KEY=window.PLANUF_FCM_VAPID_PUBLIC_KEY||"";
+  const VAPID_PUBLIC_KEY=window.PLANUF_FCM_VAPID_PUBLIC_KEY||"BDU7dtIHgKtUOrvebB4bpvByaRLAMQs7WUFwhJ-H9pmgBth6yrK0YJTl6k3WhUWrAA8FgORxphnoUXahIyp4Glo";
   let firebasePromise=null;
   let pollingStarted=false;
   let currentAppUserId="";
