@@ -35,18 +35,28 @@
     const first=panel.firstElementChild;
     if(first){first.style.marginTop='0';first.style.paddingTop='0';}
   }
+  function addScript(src,id){
+    if(document.querySelector('script[data-source-id="'+id+'"]')) return;
+    const script=document.createElement('script');
+    script.src=src;
+    script.dataset.sourceId=id;
+    document.body.appendChild(script);
+  }
+  function addStyle(href,id){
+    if(document.querySelector('link[data-source-id="'+id+'"]')) return;
+    const link=document.createElement('link');
+    link.rel='stylesheet';
+    link.href=href;
+    link.dataset.sourceId=id;
+    document.head.appendChild(link);
+  }
   function loadMessagesOnlyFix(){
     if(window.__PLANUF_MESSAGES_ONLY_FIX_LOADED__) return;
     window.__PLANUF_MESSAGES_ONLY_FIX_LOADED__=true;
-    const script=document.createElement('script');
-    script.src='planuf-script-20-v68-messages-route-class.js?v=stable4';
-    script.dataset.sourceId='planuf-v69-chat-banner-cleanup';
-    document.body.appendChild(script);
-    const link=document.createElement('link');
-    link.rel='stylesheet';
-    link.href='planuf-style-37-v68-messages-only-stable.css?v=stable4';
-    link.dataset.sourceId='planuf-v69-chat-banner-layout';
-    document.head.appendChild(link);
+    addScript('planuf-script-20-v68-messages-route-class.js?v=stable4','planuf-v69-chat-banner-cleanup');
+    addStyle('planuf-style-37-v68-messages-only-stable.css?v=stable4','planuf-v69-chat-banner-layout');
+    addStyle('planuf-style-40-v75-smart-chat-header.css?v=1','planuf-v75-smart-chat-header');
+    addScript('planuf-script-22-v75-chat-header-and-new-chat-fix.js?v=1','planuf-v75-chat-header-and-new-chat-fix');
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',()=>{apply();loadMessagesOnlyFix();}); else {apply();loadMessagesOnlyFix();}
   window.addEventListener('resize',apply);
