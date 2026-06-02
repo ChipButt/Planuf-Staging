@@ -1,4 +1,7 @@
 /* Planuf v73: final Messages chat header override. Loaded after older v68/v70 patches. */
+body.planuf-messages-route .messages-layout{
+  top:22px!important;
+}
 body.planuf-messages-route .messages-layout.planuf-chat-open .chat-detail{
   display:grid!important;
   grid-template-rows:64px minmax(0,1fr) auto!important;
@@ -67,6 +70,7 @@ body.planuf-messages-route .messages-layout .chat-header [class*="avatar"]{
   display:none!important;
 }
 body.planuf-messages-route .messages-layout .chat-header > div:not(.planuf-chat-back-button):not(.planuf-create-idea-from-chat),
+body.planuf-messages-route .messages-layout .chat-header .thread-title-block,
 body.planuf-messages-route .messages-layout .chat-header .chat-title,
 body.planuf-messages-route .messages-layout .chat-header .planuf-chat-participant-head,
 body.planuf-messages-route .messages-layout .chat-header .planuf-chat-banner-title,
@@ -93,8 +97,34 @@ body.planuf-messages-route .messages-layout .chat-header h3{
   font-weight:900!important;
   line-height:1!important;
 }
+body.planuf-messages-route .messages-layout .chat-header .thread-title-block{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+}
+body.planuf-messages-route .messages-layout .chat-header .thread-title-block h1,
+body.planuf-messages-route .messages-layout .chat-header .thread-title-block h2,
+body.planuf-messages-route .messages-layout .chat-header .thread-title-block h3{
+  display:block!important;
+  width:100%!important;
+  min-width:0!important;
+  max-width:100%!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:52px!important;
+  padding:0!important;
+  margin:0!important;
+  overflow:hidden!important;
+  white-space:nowrap!important;
+  text-overflow:ellipsis!important;
+  color:#000!important;
+  font-size:26px!important;
+  font-weight:900!important;
+  line-height:1!important;
+}
 body.planuf-messages-route .messages-layout .chat-header p,
 body.planuf-messages-route .messages-layout .chat-header small,
+body.planuf-messages-route .messages-layout .chat-header .thread-title-block span,
 body.planuf-messages-route .messages-layout .chat-header .participant-list,
 body.planuf-messages-route .messages-layout .chat-header .participants,
 body.planuf-messages-route .messages-layout .chat-header .members,
@@ -161,10 +191,14 @@ body.planuf-messages-route .messages-layout .chat-header button:not(.planuf-chat
   body.planuf-messages-route .messages-layout .chat-header .secondary:not(.planuf-chat-back-button),
   body.planuf-messages-route .messages-layout .chat-header button:not(.planuf-chat-back-button):not(:first-child){width:80px!important;min-width:80px!important;max-width:80px!important;}
   body.planuf-messages-route .messages-layout .chat-header > div:not(.planuf-chat-back-button):not(.planuf-create-idea-from-chat),
+  body.planuf-messages-route .messages-layout .chat-header .thread-title-block,
   body.planuf-messages-route .messages-layout .chat-header .chat-title,
   body.planuf-messages-route .messages-layout .chat-header .planuf-chat-participant-head,
   body.planuf-messages-route .messages-layout .chat-header .planuf-chat-banner-title,
   body.planuf-messages-route .messages-layout .chat-header h1,
   body.planuf-messages-route .messages-layout .chat-header h2,
-  body.planuf-messages-route .messages-layout .chat-header h3{font-size:23px!important;}
+  body.planuf-messages-route .messages-layout .chat-header h3,
+  body.planuf-messages-route .messages-layout .chat-header .thread-title-block h1,
+  body.planuf-messages-route .messages-layout .chat-header .thread-title-block h2,
+  body.planuf-messages-route .messages-layout .chat-header .thread-title-block h3{font-size:23px!important;}
 }

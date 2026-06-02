@@ -4,6 +4,7 @@
   window.__PLANUF_V68_MESSAGES_ROUTE_CLASS__=true;
 
   var suppressChatOpenUntil=0;
+  var lastMessagesNavActivationAt=0;
 
   function text(el){ return String((el && (el.textContent || el.getAttribute && el.getAttribute('aria-label'))) || '').toLowerCase(); }
 
@@ -91,6 +92,44 @@
     });
   }
 
+  function bindMessagesNavButtons(){
+    var selectors=[
+      '.sidebar button',
+      '.sidebar .nav-item',
+      '.nav-list button',
+      '.nav-item',
+      '.nav-tabs button',
+      '.nav-tab'
+    ].join(',');
+    Array.from(document.querySelectorAll(selectors)).forEach(function(btn){
+      if(btn.closest && btn.closest('.messages-layout')) return;
+      var btnText=text(btn);
+      if(!btnText.includes('message')) return;
+      if(btn.dataset.planufMessagesListBound==='1') return;
+      btn.dataset.planufMessagesListBound='1';
+      btn.addEventListener('click',goBackToChatList,true);
+      btn.addEventListener('touchend',goBackToChatList,true);
+    });
+  }
+
+  function messagesNavTarget(event){
+    var target=event && event.target && event.target.closest ? event.target.closest('.nav-tabs button,.nav-tab,.sidebar button,.sidebar .nav-item,.nav-list button,.nav-item') : null;
+    if(!target) return null;
+    if(target.closest && target.closest('.messages-layout')) return null;
+    return text(target).includes('message') ? target : null;
+  }
+
+  function handleMessagesNavActivation(event){
+    if(!messagesNavTarget(event)) return;
+    var now=Date.now();
+    if(now-lastMessagesNavActivationAt<650){
+      if(event){ event.preventDefault(); event.stopPropagation(); }
+      return;
+    }
+    lastMessagesNavActivationAt=now;
+    goBackToChatList(event);
+  }
+
   function bindChatRows(){
     var selectors='.messages-layout .chat-row,.messages-layout .record-row,.messages-layout .item-list button';
     Array.from(document.querySelectorAll(selectors)).forEach(function(row){
@@ -145,6 +184,7 @@
   function apply(){
     document.body.classList.toggle('planuf-messages-route', isMessagesActive());
     bindBackButtons();
+    bindMessagesNavButtons();
     bindChatRows();
     cleanChatBanner();
     if(Date.now()<suppressChatOpenUntil){ forceChatList(); }
@@ -155,6 +195,8 @@
   window.addEventListener('popstate',function(){ setTimeout(apply,20); setTimeout(apply,120); });
   window.addEventListener('resize',apply);
   document.addEventListener('click',function(){ setTimeout(apply,80); },true);
+  document.addEventListener('click',handleMessagesNavActivation,true);
+  document.addEventListener('touchend',handleMessagesNavActivation,true);
   var timer=null;
   new MutationObserver(function(){ clearTimeout(timer); timer=setTimeout(apply,60); }).observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['class','style','aria-current','data-planuf-force-list']});
 })();

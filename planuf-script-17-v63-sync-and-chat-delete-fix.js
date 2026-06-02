@@ -60,6 +60,8 @@
     del.type='button';
     del.className='planuf-chat-delete-action';
     del.textContent='Delete chat';
+    del.tabIndex=-1;
+    del.setAttribute('aria-hidden','true');
     del.addEventListener('click',ev=>{ev.preventDefault();ev.stopPropagation();confirmDelete(threadId,row,wrap);},true);
     wrap.appendChild(del);
     return wrap;
@@ -70,8 +72,14 @@
     row.dataset.v63SwipeBound='1';
     const wrap=ensureDeleteWrap(row); if(!wrap) return;
     let sx=0,sy=0,tracking=false;
-    function open(){row.classList.add('planuf-swipe-delete-open');wrap.classList.add('open');}
-    function close(){row.classList.remove('planuf-swipe-delete-open');wrap.classList.remove('open');}
+    function setDeleteAccessible(isOpen){
+      const action=qs('.planuf-chat-delete-action',wrap);
+      if(!action) return;
+      action.tabIndex=isOpen?0:-1;
+      action.setAttribute('aria-hidden',isOpen?'false':'true');
+    }
+    function open(){row.classList.add('planuf-swipe-delete-open');wrap.classList.add('open');setDeleteAccessible(true);}
+    function close(){row.classList.remove('planuf-swipe-delete-open');wrap.classList.remove('open');setDeleteAccessible(false);}
     row.addEventListener('pointerdown',ev=>{sx=ev.clientX;sy=ev.clientY;tracking=true;},{passive:true});
     row.addEventListener('pointerup',ev=>{if(!tracking)return;tracking=false;const dx=ev.clientX-sx;const dy=Math.abs(ev.clientY-sy);if(dy<40&&dx<-45)open();else if(dx>25)close();},{passive:true});
     row.addEventListener('touchstart',ev=>{const t=ev.touches&&ev.touches[0];if(!t)return;sx=t.clientX;sy=t.clientY;tracking=true;},{passive:true});

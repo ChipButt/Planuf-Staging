@@ -42,22 +42,31 @@
       input.dispatchEvent(new Event('input',{bubbles:true}));
       input.dispatchEvent(new Event('change',{bubbles:true}));
     }
-    try{
-      source.dispatchEvent(new PointerEvent('pointerdown',{bubbles:true,cancelable:true,pointerType:'touch'}));
-      source.dispatchEvent(new PointerEvent('pointerup',{bubbles:true,cancelable:true,pointerType:'touch'}));
-    }catch(e){}
-    source.dispatchEvent(new MouseEvent('mousedown',{bubbles:true,cancelable:true}));
-    source.dispatchEvent(new MouseEvent('mouseup',{bubbles:true,cancelable:true}));
     source.click();
     blurAndResetZoom();
+    return true;
+  }
+  function reserveSendTap(icon){
+    if(!icon || icon.disabled) return false;
+    var now=Date.now();
+    var last=Number(icon.dataset.planufLastSendTapAt||0);
+    if(now-last<650) return false;
+    icon.dataset.planufLastSendTapAt=String(now);
     return true;
   }
   function ensureIcon(composer){
     if(!composer) return;
     var wrap=qs('.dictation-wrap',composer)||composer;
     var source=findRealSend(composer);
-    if(source) source.classList.add('planuf-message-send-source');
     var icon=qs('.planuf-message-send-icon-button',composer);
+    if(!source){
+      if(icon){
+        icon.disabled=true;
+        icon.setAttribute('aria-disabled','true');
+      }
+      return;
+    }
+    source.classList.add('planuf-message-send-source');
     if(!icon){
       icon=document.createElement('button');
       icon.type='button';
@@ -66,7 +75,8 @@
       icon.title='Send message';
       wrap.appendChild(icon);
     }
-    icon.disabled=source?!!source.disabled:false;
+    icon.disabled=!!source.disabled;
+    icon.setAttribute('aria-disabled', source.disabled?'true':'false');
     icon.dataset.planufSendBound='1';
   }
   function fixInputs(){
@@ -93,7 +103,7 @@
     var composer=findComposer(target);
     ev.preventDefault();
     ev.stopPropagation();
-    tapRealSend(composer);
+    if(reserveSendTap(target) && !tapRealSend(composer)) target.dataset.planufLastSendTapAt='0';
   },true);
   document.addEventListener('touchend',function(ev){
     var target=ev.target&&ev.target.closest?ev.target.closest('.planuf-message-send-icon-button'):null;
@@ -101,7 +111,7 @@
     var composer=findComposer(target);
     ev.preventDefault();
     ev.stopPropagation();
-    tapRealSend(composer);
+    if(reserveSendTap(target) && !tapRealSend(composer)) target.dataset.planufLastSendTapAt='0';
   },true);
 
   function boot(){fixComposers();}

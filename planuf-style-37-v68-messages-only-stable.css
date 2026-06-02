@@ -30,6 +30,17 @@ body.planuf-messages-route .messages-layout .item-list{flex:1 1 auto!important;d
 body.planuf-messages-route .messages-layout .chat-row,
 body.planuf-messages-route .messages-layout .record-row,
 body.planuf-messages-route .messages-layout .item-list button{width:100%!important;min-height:68px!important;display:grid!important;grid-template-columns:48px minmax(0,1fr) auto!important;align-items:center!important;gap:10px!important;padding:11px 12px!important;border:0!important;border-bottom:1px solid rgba(0,0,0,.18)!important;border-radius:0!important;background:#fff!important;color:#000!important;margin:0!important;box-shadow:none!important;overflow:hidden!important;text-align:left!important;}
+body.planuf-messages-route .messages-layout .planuf-chat-delete-wrap{position:relative!important;width:100%!important;min-height:68px!important;overflow:hidden!important;background:#e8323c!important;border-bottom:1px solid rgba(0,0,0,.18)!important;margin:0!important;padding:0!important;display:block!important;isolation:isolate!important;}
+body.planuf-messages-route .messages-layout .planuf-chat-delete-wrap .chat-row,
+body.planuf-messages-route .messages-layout .planuf-chat-delete-wrap .record-row{position:relative!important;z-index:2!important;border-bottom:0!important;transform:translateX(0)!important;transition:transform .18s ease!important;will-change:transform!important;touch-action:pan-y!important;}
+body.planuf-messages-route .messages-layout .planuf-chat-delete-wrap.open .chat-row,
+body.planuf-messages-route .messages-layout .planuf-chat-delete-wrap.open .record-row,
+body.planuf-messages-route .messages-layout .planuf-chat-delete-wrap .chat-row.planuf-swipe-delete-open,
+body.planuf-messages-route .messages-layout .planuf-chat-delete-wrap .record-row.planuf-swipe-delete-open{transform:translateX(-104px)!important;}
+body.planuf-messages-route .messages-layout .planuf-chat-delete-action,
+body.planuf-messages-route .messages-layout .item-list .planuf-chat-delete-action{position:absolute!important;z-index:1!important;right:0!important;top:0!important;bottom:0!important;width:104px!important;min-width:104px!important;max-width:104px!important;height:auto!important;min-height:68px!important;margin:0!important;padding:0 10px!important;border:0!important;border-radius:0!important;background:#e8323c!important;color:#fff!important;font-size:14px!important;line-height:1.05!important;font-weight:900!important;text-align:center!important;display:flex!important;align-items:center!important;justify-content:center!important;opacity:0!important;pointer-events:none!important;transform:translateX(100%)!important;transition:opacity .12s ease,transform .18s ease!important;box-shadow:none!important;}
+body.planuf-messages-route .messages-layout .planuf-chat-delete-wrap.open .planuf-chat-delete-action,
+body.planuf-messages-route .messages-layout .item-list .planuf-chat-delete-wrap.open .planuf-chat-delete-action{opacity:1!important;pointer-events:auto!important;transform:translateX(0)!important;}
 body.planuf-messages-route .messages-layout .chat-row:active,
 body.planuf-messages-route .messages-layout .record-row:active{background:#f1edff!important;}
 body.planuf-messages-route .messages-layout .avatar,
