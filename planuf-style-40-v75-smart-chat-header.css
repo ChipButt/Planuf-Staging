@@ -1,15 +1,14 @@
 /* Planuf v75: final mobile chat header polish. */
 body.planuf-messages-route .messages-layout.planuf-chat-open .chat-detail {
-  grid-template-rows: 66px minmax(0, 1fr) auto !important;
+  grid-template-rows: 68px minmax(0, 1fr) auto !important;
 }
-
 body.planuf-messages-route .messages-layout .chat-header {
-  height: 66px !important;
-  min-height: 66px !important;
-  max-height: 66px !important;
+  height: 68px !important;
+  min-height: 68px !important;
+  max-height: 68px !important;
   display: grid !important;
-  grid-template-columns: 48px minmax(0, 1fr) 88px !important;
-  grid-template-rows: 66px !important;
+  grid-template-columns: 46px minmax(0, 1fr) 90px !important;
+  grid-template-rows: 68px !important;
   align-items: center !important;
   gap: 8px !important;
   padding: 7px 10px !important;
@@ -19,16 +18,15 @@ body.planuf-messages-route .messages-layout .chat-header {
   overflow: hidden !important;
   box-sizing: border-box !important;
 }
-
 body.planuf-messages-route .messages-layout .chat-header .planuf-chat-back-button {
   grid-column: 1 !important;
   grid-row: 1 !important;
   align-self: center !important;
   justify-self: center !important;
-  width: 40px !important;
-  height: 40px !important;
-  min-width: 40px !important;
-  min-height: 40px !important;
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  min-height: 38px !important;
   padding: 0 !important;
   margin: 0 !important;
   border: 0 !important;
@@ -42,18 +40,16 @@ body.planuf-messages-route .messages-layout .chat-header .planuf-chat-back-butto
   line-height: 0 !important;
   box-shadow: none !important;
 }
-
 body.planuf-messages-route .messages-layout .chat-header .planuf-chat-back-button.has-unread {
   background-image: url("planuf-back-button-unread.webp") !important;
 }
-
 body.planuf-messages-route .messages-layout .chat-header .planuf-chat-member-strip {
   grid-column: 2 !important;
   grid-row: 1 !important;
   align-self: center !important;
   justify-self: start !important;
   width: 100% !important;
-  height: 52px !important;
+  height: 54px !important;
   min-width: 0 !important;
   display: flex !important;
   align-items: center !important;
@@ -61,12 +57,11 @@ body.planuf-messages-route .messages-layout .chat-header .planuf-chat-member-str
   padding: 0 4px !important;
   overflow: hidden !important;
 }
-
 body.planuf-messages-route .messages-layout .chat-header .planuf-chat-member-avatar {
-  width: 36px !important;
-  height: 36px !important;
-  min-width: 36px !important;
-  min-height: 36px !important;
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  min-height: 38px !important;
   border-radius: 999px !important;
   border: 2px solid #000 !important;
   display: grid !important;
@@ -78,16 +73,11 @@ body.planuf-messages-route .messages-layout .chat-header .planuf-chat-member-ava
   line-height: 1 !important;
   overflow: hidden !important;
 }
-
-body.planuf-messages-route .messages-layout .chat-header .planuf-chat-member-avatar:first-child {
-  margin-left: 0 !important;
-}
-
+body.planuf-messages-route .messages-layout .chat-header .planuf-chat-member-avatar:first-child { margin-left: 0 !important; }
 body.planuf-messages-route .messages-layout .chat-header .planuf-chat-member-avatar:nth-child(1) { background: #23C9FF !important; }
 body.planuf-messages-route .messages-layout .chat-header .planuf-chat-member-avatar:nth-child(2) { background: #FAC05E !important; }
 body.planuf-messages-route .messages-layout .chat-header .planuf-chat-member-avatar:nth-child(3) { background: #9381FF !important; }
 body.planuf-messages-route .messages-layout .chat-header .planuf-chat-member-avatar:nth-child(4) { background: #EE6352 !important; }
-
 body.planuf-messages-route .messages-layout .chat-header .planuf-chat-member-extra {
   min-width: 30px !important;
   height: 30px !important;
@@ -101,7 +91,6 @@ body.planuf-messages-route .messages-layout .chat-header .planuf-chat-member-ext
   font-size: 11px !important;
   font-weight: 900 !important;
 }
-
 body.planuf-messages-route .messages-layout .chat-header .chat-title,
 body.planuf-messages-route .messages-layout .chat-header .planuf-chat-participant-head,
 body.planuf-messages-route .messages-layout .chat-header .planuf-chat-banner-title,
@@ -118,7 +107,6 @@ body.planuf-messages-route .messages-layout .chat-header [data-participants],
 body.planuf-messages-route .messages-layout .chat-header [data-members] {
   display: none !important;
 }
-
 body.planuf-messages-route .messages-layout .chat-header .planuf-create-idea-from-chat,
 body.planuf-messages-route .messages-layout .chat-header .secondary:not(.planuf-chat-back-button),
 body.planuf-messages-route .messages-layout .chat-header button:not(.planuf-chat-back-button):not(:first-child) {
@@ -126,10 +114,10 @@ body.planuf-messages-route .messages-layout .chat-header button:not(.planuf-chat
   grid-row: 1 !important;
   align-self: center !important;
   justify-self: end !important;
-  width: 88px !important;
-  min-width: 88px !important;
-  height: 46px !important;
-  min-height: 46px !important;
+  width: 90px !important;
+  min-width: 90px !important;
+  height: 48px !important;
+  min-height: 48px !important;
   padding: 0 !important;
   margin: 0 !important;
   border: 3px solid #000 !important;
@@ -145,7 +133,6 @@ body.planuf-messages-route .messages-layout .chat-header button:not(.planuf-chat
   font-size: 0 !important;
   line-height: 0 !important;
 }
-
 body.planuf-messages-route .messages-layout .chat-header .planuf-create-idea-from-chat::before,
 body.planuf-messages-route .messages-layout .chat-header .secondary:not(.planuf-chat-back-button)::before,
 body.planuf-messages-route .messages-layout .chat-header button:not(.planuf-chat-back-button):not(:first-child)::before {
@@ -157,4 +144,15 @@ body.planuf-messages-route .messages-layout .chat-header button:not(.planuf-chat
   line-height: 1.05 !important;
   font-weight: 900 !important;
   text-align: center !important;
+}
+body.planuf-messages-route .chat-row.planuf-chat-hidden,
+body.planuf-messages-route .record-row.planuf-chat-hidden,
+body.planuf-messages-route .item-list button.planuf-chat-hidden {
+  display: none !important;
+}
+body.planuf-suppress-render-error #root > main,
+body.planuf-suppress-render-error .planuf-app-render-error,
+body.planuf-suppress-render-error [class*="render-error"],
+body.planuf-suppress-render-error [class*="error-boundary"] {
+  display: none !important;
 }
