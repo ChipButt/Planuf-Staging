@@ -1,4 +1,4 @@
-/* Planuf v74: mobile message composer fix. Stops iOS text-input zoom and restores clean send hitbox. */
+/* Planuf v76: mobile message composer asset positioning. Stops iOS text-input zoom and fixes mic/send placement. */
 html,
 body{
   -webkit-text-size-adjust:100%!important;
@@ -47,8 +47,25 @@ body.planuf-messages-route .messages-layout .message-composer .dictate-button{
   height:34px!important;
   min-width:34px!important;
   min-height:34px!important;
+  max-width:34px!important;
+  max-height:34px!important;
   z-index:12!important;
   pointer-events:auto!important;
+  cursor:pointer!important;
+  touch-action:manipulation!important;
+  background-image:url("microphone-pro.webp")!important;
+  background-size:contain!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  background-color:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  color:transparent!important;
+  font-size:0!important;
+  line-height:0!important;
+  padding:0!important;
+  margin:0!important;
+  box-shadow:none!important;
 }
 body.planuf-messages-route .messages-layout .message-composer .planuf-message-send-icon-button{
   position:absolute!important;
@@ -60,6 +77,8 @@ body.planuf-messages-route .messages-layout .message-composer .planuf-message-se
   height:34px!important;
   min-width:34px!important;
   min-height:34px!important;
+  max-width:34px!important;
+  max-height:34px!important;
   z-index:14!important;
   pointer-events:auto!important;
   cursor:pointer!important;
