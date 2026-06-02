@@ -1,7 +1,5 @@
-// Planuf v67: measure the actual visible fixed header and place content directly underneath it.
+// Planuf v77: measure fixed header and load messages fixes with fresh cache keys.
 (function(){
-  if(window.__PLANUF_V67_MEASURED_HEADER__) return;
-  window.__PLANUF_V67_MEASURED_HEADER__=true;
   function qs(s,r=document){return r.querySelector(s)}
   function qsa(s,r=document){return Array.from(r.querySelectorAll(s))}
   function visibleBottomOfHeader(sidebar){
@@ -51,17 +49,15 @@
     document.head.appendChild(link);
   }
   function loadMessagesOnlyFix(){
-    if(window.__PLANUF_MESSAGES_ONLY_FIX_LOADED__) return;
-    window.__PLANUF_MESSAGES_ONLY_FIX_LOADED__=true;
     addScript('planuf-script-20-v68-messages-route-class.js?v=stable4','planuf-v69-chat-banner-cleanup');
     addStyle('planuf-style-37-v68-messages-only-stable.css?v=stable4','planuf-v69-chat-banner-layout');
-    addStyle('planuf-style-40-v75-smart-chat-header.css?v=1','planuf-v75-smart-chat-header');
-    addScript('planuf-script-22-v75-chat-header-and-new-chat-fix.js?v=1','planuf-v75-chat-header-and-new-chat-fix');
+    addStyle('planuf-style-40-v75-smart-chat-header.css?v=77','planuf-v77-smart-chat-header');
+    addScript('planuf-script-22-v75-chat-header-and-new-chat-fix.js?v=77','planuf-v77-chat-header-and-new-chat-fix');
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',()=>{apply();loadMessagesOnlyFix();}); else {apply();loadMessagesOnlyFix();}
   window.addEventListener('resize',apply);
   window.addEventListener('orientationchange',()=>setTimeout(apply,250));
-  window.addEventListener('hashchange',()=>setTimeout(apply,80));
+  window.addEventListener('hashchange',()=>{setTimeout(apply,80);setTimeout(loadMessagesOnlyFix,100);});
   let t=null;
   new MutationObserver(()=>{clearTimeout(t);t=setTimeout(apply,80);}).observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:['class','style']});
 })();
